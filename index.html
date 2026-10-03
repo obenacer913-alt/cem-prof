@@ -1,0 +1,2903 @@
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منارة المتوسط | منصة الأساتذة والإدارة — الطور المتوسط الجزائر</title>
+<meta name="description" content="منصة جزائرية للأستاذ وإدارة الطور المتوسط: المنهاج الرسمي، المقاطع التعلمية، الموارد المعرفية، الكفاءات المستهدفة، المذكرات، وملف المفتش الكامل — حسابات بالبريد أو فيسبوك وتحميل حقيقي للملفات.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    fontFamily: { cairo: ['Cairo','sans-serif'], taj: ['Tajawal','sans-serif'] },
+    colors: {
+      dzgreen: {50:'#effaf4',100:'#d7f0e2',200:'#b2e1c8',300:'#7fcbab',400:'#4aae87',500:'#0B6B4A',600:'#09573d',700:'#074532',800:'#073a2b',900:'#04261c'},
+      gold: {300:'#F2D97A',400:'#E8C547',500:'#C9A227',600:'#A8861D'},
+      ink: '#0F1E2E'
+    },
+    boxShadow: {
+      soft:'0 20px 60px -15px rgba(11,107,74,.28)',
+      card:'0 12px 42px -12px rgba(15,30,46,.16)',
+      lift:'0 28px 70px -22px rgba(11,107,74,.42)'
+    }
+  } }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  *{font-family:'Cairo',sans-serif}
+  html{scroll-behavior:smooth}
+  body{background:#F6F8F6; overflow-x:hidden}
+  ::-webkit-scrollbar{width:9px;height:9px}
+  ::-webkit-scrollbar-track{background:#eef2ee}
+  ::-webkit-scrollbar-thumb{background:linear-gradient(#0B6B4A,#C9A227);border-radius:20px}
+
+  /* ===== HERO — CONTRAST FIX ===== */
+  .hero-bg{
+    background-color:#053a27; /* solid fallback: text always readable */
+    background-image:
+      radial-gradient(900px 460px at 88% 8%, rgba(201,162,39,.30), transparent 62%),
+      radial-gradient(760px 480px at 8% 92%, rgba(11,107,74,.45), transparent 62%),
+      linear-gradient(135deg,#04261c 0%, #074532 34%, #0B6B4A 68%, #0e7d57 100%);
+    background-repeat:no-repeat;
+    background-size:150% 150%,150% 150%,180% 180%;
+    color:#ffffff;
+    animation:bgShift 22s ease-in-out infinite alternate;
+  }
+  @keyframes bgShift{
+    0%{background-position:0% 0%,100% 100%,0% 50%}
+    100%{background-position:100% 20%,0% 80%,100% 50%}
+  }
+  /* Guarantees WCAG-friendly contrast for hero headline & lead paragraph */
+  .hero-bg #heroTitle{color:#ffffff;text-shadow:0 3px 22px rgba(0,0,0,.55), 0 1px 2px rgba(0,0,0,.45)}
+  .hero-bg .hero-lead{color:#eafaf1;text-shadow:0 2px 14px rgba(0,0,0,.5)}
+  .hero-bg .hero-eyebrow{color:#eafaf1}
+  @media print{
+    .hero-bg{background:#ffffff !important}
+    .hero-bg #heroTitle, .hero-bg .hero-lead, .hero-bg .hero-eyebrow{color:#0F1E2E !important;text-shadow:none !important}
+  }
+
+  .pattern{background-image:radial-gradient(rgba(255,255,255,.13) 1.5px, transparent 1.5px); background-size:22px 22px}
+  .glass{background:rgba(255,255,255,.10);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.22);color:#fff}
+  .glass-w{background:rgba(255,255,255,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(11,107,74,.10)}
+  .card-hover{transition:transform .38s cubic-bezier(.2,.8,.2,1), box-shadow .38s ease, border-color .3s ease}
+  .card-hover:hover{transform:translateY(-8px);box-shadow:0 28px 62px -16px rgba(11,107,74,.34);border-color:rgba(11,107,74,.22)}
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .85s cubic-bezier(.2,.8,.2,1), transform .85s cubic-bezier(.2,.8,.2,1)}
+  .reveal.active{opacity:1;transform:none}
+  .marquee-wrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .marquee{display:flex;gap:1.25rem;width:max-content;animation:marq 34s linear infinite}
+  .marquee:hover{animation-play-state:paused}
+  @keyframes marq{from{transform:translateX(0)}to{transform:translateX(50%)}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  .float{animation:float 6s ease-in-out infinite}
+  .float2{animation:float 8s ease-in-out infinite}
+  .tab-btn.active, .lvl-tab.active{background:#0B6B4A;color:#fff;border-color:#0B6B4A;box-shadow:0 12px 28px -10px rgba(11,107,74,.65)}
+  .side-link{position:relative;transition:.28s}
+  .side-link.active{background:linear-gradient(135deg,#0B6B4A,#0e8a5f);color:#fff;box-shadow:0 14px 30px -12px rgba(11,107,74,.6)}
+  .side-link.active i{color:#E8C547}
+  .side-link::before{content:'';position:absolute;right:0;top:14%;height:72%;width:3px;border-radius:8px;background:#E8C547;transform:scaleY(0);transition:transform .3s ease}
+  .side-link.active::before{transform:scaleY(1)}
+  .accordion-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.2,.8,.2,1)}
+  .accordion-item.open .accordion-body{max-height:2000px}
+  .accordion-item.open .chev{transform:rotate(180deg)}
+  .chev{transition:transform .32s ease}
+  .btn-shine{position:relative;overflow:hidden}
+  .btn-shine::after{content:'';position:absolute;top:0;left:-90%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-22deg);transition:left .7s ease}
+  .btn-shine:hover::after{left:135%}
+  .magnetic{transition:transform .28s cubic-bezier(.2,.8,.2,1), box-shadow .28s ease}
+  #preloader{transition:opacity .6s ease, visibility .6s ease}
+  .progress-ring{transition:stroke-dashoffset 1.2s cubic-bezier(.2,.8,.2,1)}
+  .bar-fill{transition:width 1s cubic-bezier(.2,.8,.2,1)}
+  .doc-paper{background:linear-gradient(#fff,#FDFBF2);border:1px solid #e7e0c8;box-shadow:0 18px 46px -18px rgba(0,0,0,.22)}
+  .check-item input:checked + div{border-color:#0B6B4A;background:#effaf4;transform:translateX(-2px)}
+  .check-item input:checked + div .boxed{background:#0B6B4A;border-color:#0B6B4A;color:#fff}
+  .check-item input:checked + div .lbl{text-decoration:line-through;opacity:.65}
+  .toast-in{animation:toastIn .42s cubic-bezier(.2,.9,.3,1.2)}
+  @keyframes toastIn{from{transform:translateY(22px) scale(.95);opacity:0}to{transform:none;opacity:1}}
+  .modal-bg{background:rgba(4,38,28,.68);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:#0B6B4A !important;box-shadow:0 0 0 4px rgba(11,107,74,.13)}
+  .table-row:hover{background:#effaf4}
+  .chip{font-size:11px;padding:3px 11px;border-radius:999px;font-weight:800;display:inline-flex;align-items:center;gap:5px}
+  .dot-pulse{position:relative}
+  .dot-pulse::after{content:'';position:absolute;inset:-4px;border-radius:999px;border:2px solid #22c55e;animation:pulse 1.7s infinite}
+  @keyframes pulse{0%{transform:scale(.8);opacity:.9}100%{transform:scale(1.5);opacity:0}}
+  .kb{animation:kb .5s ease}
+  @keyframes kb{0%{transform:scale(.96)}60%{transform:scale(1.02)}100%{transform:scale(1)}}
+  .sweep-line{position:relative;overflow:hidden}
+  .sweep-line::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.35) 50%,transparent 65%);transform:translateX(-120%);transition:transform .9s ease}
+  .sweep-line:hover::after{transform:translateX(120%)}
+  .img-zoom img{transition:transform .8s cubic-bezier(.2,.8,.2,1), filter .6s ease}
+  .img-zoom:hover img{transform:scale(1.07)}
+  .scroll-progress{position:fixed;top:0;right:0;height:3px;width:0;z-index:200;background:linear-gradient(90deg,#E8C547,#0B6B4A)}
+  .kinetic span{display:inline-block;opacity:0;transform:translateY(24px) rotate(3deg);animation:kin .8s cubic-bezier(.2,.8,.2,1) forwards}
+  @keyframes kin{to{opacity:1;transform:none}}
+  .fade-list *{opacity:0;transform:translateY(16px);animation:fadeUp .6s cubic-bezier(.2,.8,.2,1) forwards}
+  @keyframes fadeUp{to{opacity:1;transform:none}}
+  .no-scrollbar::-webkit-scrollbar{display:none}
+  .no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
+  @media print{
+    .no-print{display:none !important}
+    body{background:#fff}
+    #view-teacher, #view-admin{display:block !important}
+  }
+</style>
+</head>
+<body class="text-slate-800">
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ============ PRELOADER ============ -->
+<div id="preloader" class="fixed inset-0 z-[220] bg-[#04261c] flex flex-col items-center justify-center gap-5 px-6 text-center">
+  <div class="w-20 h-20 rounded-3xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-4xl font-black text-[#04261c] shadow-2xl float">م</div>
+  <div class="text-white font-black text-2xl">منارة المتوسط</div>
+  <div class="text-emerald-200/70 text-sm font-bold">منصة الأساتذة والإدارة وفق منهاج وزارة التربية الوطنية</div>
+  <div class="w-60 h-2 rounded-full bg-white/10 overflow-hidden">
+    <div id="loadBar" class="h-full w-0 bg-gradient-to-l from-gold-400 to-emerald-400 rounded-full transition-all duration-200"></div>
+  </div>
+</div>
+
+<!-- ============ TOP BAR ============ -->
+<div id="topBar" class="bg-[#04261c] text-white text-[12px] py-2 px-4 no-print">
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
+    <div class="flex items-center gap-2 flex-wrap">
+      <span class="w-6 h-4 rounded overflow-hidden flex flex-col border border-white/20 shrink-0">
+        <span class="h-1/2 bg-emerald-500"></span>
+        <span class="h-1/2 bg-white flex items-center justify-center"><span class="text-red-600 text-[9px] leading-none">★</span></span>
+      </span>
+      <span class="font-bold">الجمهورية الجزائرية الديمقراطية الشعبية — وزارة التربية الوطنية</span>
+      <span class="hidden md:inline text-emerald-200/60">| الطور المتوسط — منهاج الجيل الثاني</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="hidden sm:flex items-center gap-1.5 text-emerald-200">
+        <span class="w-2 h-2 rounded-full bg-green-400 dot-pulse inline-block"></span> الموسم الدراسي 2025 / 2026 نشط
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NAVBAR ============ -->
+<header id="navbar" class="sticky top-0 z-[90] bg-white/92 backdrop-blur-xl border-b border-emerald-900/10 no-print">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-3 cursor-pointer group" onclick="showView('home')">
+      <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-dzgreen-500 to-[#04261c] flex items-center justify-center text-white shadow-soft relative overflow-hidden">
+        <i class="fa-solid fa-book-open-cover text-xl relative z-10"></i>
+        <span class="absolute -bottom-1 -left-1 w-6 h-6 rounded-full bg-gold-500 text-[#04261c] text-[10px] font-black flex items-center justify-center border-2 border-white z-10">DZ</span>
+      </div>
+      <div>
+        <div class="font-black text-xl leading-none text-[#0F1E2E]">منارة <span class="text-dzgreen-500">المتوسط</span></div>
+        <div class="text-[11px] text-slate-500 font-bold tracking-wide">MANARA • MOYEN • أساتذة + إدارة</div>
+      </div>
+    </div>
+    <nav class="hidden lg:flex items-center gap-1 font-bold text-[14px]">
+      <button onclick="scrollToId('hero')" class="px-4 py-2 rounded-xl hover:bg-emerald-50 hover:text-dzgreen-600 transition">الرئيسية</button>
+      <button onclick="scrollToId('guidePreview')" class="px-4 py-2 rounded-xl hover:bg-emerald-50 hover:text-dzgreen-600 transition">دليل الأستاذ</button>
+      <button onclick="scrollToId('subjects')" class="px-4 py-2 rounded-xl hover:bg-emerald-50 hover:text-dzgreen-600 transition">المواد والأطوار</button>
+      <button onclick="scrollToId('inspector')" class="px-4 py-2 rounded-xl hover:bg-emerald-50 hover:text-dzgreen-600 transition relative">
+        ملف المفتش
+        <span class="absolute top-1.5 left-1.5 w-2 h-2 bg-red-500 rounded-full animate-ping"></span>
+      </button>
+      <button onclick="scrollToId('adminPrev')" class="px-4 py-2 rounded-xl hover:bg-emerald-50 hover:text-dzgreen-600 transition">بوابة الإدارة</button>
+      <button onclick="scrollToId('faq')" class="px-4 py-2 rounded-xl hover:bg-emerald-50 hover:text-dzgreen-600 transition">أسئلة شائعة</button>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="navUserBtn" onclick="openAuth('login')" class="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-xl border-2 border-dzgreen-500/25 font-bold text-dzgreen-700 hover:bg-emerald-50 transition text-sm">
+        <i class="fa-solid fa-right-to-bracket"></i> دخول
+      </button>
+      <button onclick="openAuth('register')" class="btn-shine magnetic flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-l from-dzgreen-600 to-dzgreen-500 text-white font-black text-sm shadow-soft">
+        <i class="fa-solid fa-user-plus"></i> حساب جديد
+      </button>
+      <button class="lg:hidden w-11 h-11 rounded-xl bg-slate-100 flex items-center justify-center" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden lg:hidden border-t bg-white px-4 py-3 grid gap-1 font-bold">
+    <button onclick="scrollToId('hero')" class="text-right px-3 py-2.5 rounded-lg hover:bg-emerald-50">الرئيسية</button>
+    <button onclick="scrollToId('guidePreview')" class="text-right px-3 py-2.5 rounded-lg hover:bg-emerald-50">دليل الأستاذ</button>
+    <button onclick="scrollToId('subjects')" class="text-right px-3 py-2.5 rounded-lg hover:bg-emerald-50">المواد والأطوار</button>
+    <button onclick="scrollToId('inspector')" class="text-right px-3 py-2.5 rounded-lg hover:bg-emerald-50">ملف المفتش</button>
+    <button onclick="scrollToId('adminPrev')" class="text-right px-3 py-2.5 rounded-lg hover:bg-emerald-50">بوابة الإدارة</button>
+    <button onclick="scrollToId('faq')" class="text-right px-3 py-2.5 rounded-lg hover:bg-emerald-50">أسئلة شائعة</button>
+    <button onclick="openAuth('login')" class="text-right px-3 py-2.5 rounded-lg bg-emerald-50 text-dzgreen-700">تسجيل الدخول</button>
+  </div>
+</header>
+
+<!-- ==================== VIEW : HOME ==================== -->
+<main id="view-home">
+
+  <!-- HERO -->
+  <section id="hero" class="hero-bg pattern relative overflow-hidden text-white">
+    <div class="absolute -top-24 -left-24 w-[460px] h-[460px] rounded-full bg-gold-500/25 blur-[110px]"></div>
+    <div class="absolute bottom-0 right-0 w-[520px] h-[320px] bg-emerald-400/20 blur-[110px]"></div>
+    <div class="max-w-7xl mx-auto px-4 pt-12 pb-16 lg:pt-20 lg:pb-24 grid lg:grid-cols-2 gap-10 items-center relative">
+      <div>
+        <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-[12px] font-bold mb-5 reveal hero-eyebrow">
+          <span class="bg-gold-500 text-[#04261c] px-2.5 py-0.5 rounded-full font-black">جديد</span>
+          <span>مطابق 100% لمنهاج الجيل الثاني • تحميل حقيقي للملفات • ملف المفتش محدّث 2025</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-[56px] font-black leading-[1.18] mb-5 kinetic" id="heroTitle">
+          <span>كل</span> <span>ما</span> <span>يحتاجه</span>
+          <span class="text-transparent bg-clip-text bg-gradient-to-l from-gold-300 to-yellow-100">أستاذ المتوسط</span>
+          <span>والإدارة</span> <span>في</span> <span>منصة</span> <span>واحدة</span>
+        </h1>
+        <p class="hero-lead text-lg leading-relaxed mb-7 max-w-2xl reveal" data-delay="120">
+          سجّل بالبريد الإلكتروني أو بفيسبوك، اختر مادتك وطورك، واحصل فورًا على: المنهاج الرسمي، المقاطع التعلمية، الموارد المعرفية، الكفاءات المستهدفة، المخططات السنوية، المذكرات، الفروض، وملف المفتش الكامل — كلها قابلة للتحميل والتعديل والطباعة.
+        </p>
+        <div class="flex flex-wrap gap-3 mb-8">
+          <button onclick="openAuth('register','teacher')" class="btn-shine magnetic bg-gradient-to-l from-gold-400 to-gold-500 text-[#04261c] font-black px-7 py-4 rounded-2xl shadow-2xl flex items-center gap-2">
+            <i class="fa-solid fa-chalkboard-user"></i> أنشئ حساب أستاذ مجاني
+          </button>
+          <button onclick="openAuth('register','admin')" class="glass magnetic font-black px-7 py-4 rounded-2xl hover:bg-white/20 flex items-center gap-2">
+            <i class="fa-solid fa-building-columns"></i> دخول الإدارة
+          </button>
+          <button onclick="enterDemo('teacher')" class="magnetic px-6 py-4 rounded-2xl border border-white/30 font-bold hover:bg-white/10 flex items-center gap-2">
+            <i class="fa-solid fa-play"></i> تجربة مباشرة
+          </button>
+        </div>
+        <div class="flex flex-wrap items-center gap-4 text-sm">
+          <div class="flex items-center gap-2 glass rounded-2xl px-4 py-2.5">
+            <i class="fa-brands fa-facebook text-blue-300 text-xl"></i>
+            <span class="font-bold">تسجيل بفيسبوك</span>
+            <i class="fa-solid fa-check text-green-300"></i>
+          </div>
+          <div class="flex items-center gap-2 glass rounded-2xl px-4 py-2.5">
+            <i class="fa-solid fa-envelope text-gold-400 text-xl"></i>
+            <span class="font-bold">تسجيل بالبريد الإلكتروني</span>
+            <i class="fa-solid fa-check text-green-300"></i>
+          </div>
+        </div>
+        <div class="grid grid-cols-3 gap-3 mt-8 max-w-lg">
+          <div class="glass rounded-2xl p-4 text-center">
+            <div class="font-black text-2xl text-gold-400"><span class="counter" data-target="12480">0</span>+</div>
+            <div class="text-[12px] text-emerald-100/80 font-bold">أستاذ مسجّل</div>
+          </div>
+          <div class="glass rounded-2xl p-4 text-center">
+            <div class="font-black text-2xl text-gold-400"><span class="counter" data-target="640">0</span>+</div>
+            <div class="text-[12px] text-emerald-100/80 font-bold">متوسطة منخرطة</div>
+          </div>
+          <div class="glass rounded-2xl p-4 text-center">
+            <div class="font-black text-2xl text-gold-400"><span class="counter" data-target="3850">0</span>+</div>
+            <div class="text-[12px] text-emerald-100/80 font-bold">مورد بيداغوجي</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- hero visual -->
+      <div class="relative">
+        <div class="glass rounded-[28px] p-2 shadow-2xl float">
+          <div class="bg-white rounded-[22px] overflow-hidden text-slate-800">
+            <div class="bg-gradient-to-l from-[#04261c] to-dzgreen-600 p-4 flex items-center justify-between text-white">
+              <div class="flex items-center gap-3">
+                <div class="flex gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-red-400"></span>
+                  <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+                  <span class="w-3 h-3 rounded-full bg-green-400"></span>
+                </div>
+                <span class="font-bold text-sm">دليل الأستاذ — فضاء تفاعلي</span>
+              </div>
+              <span class="text-[11px] bg-white/20 px-3 py-1 rounded-full font-bold flex items-center gap-1">
+                مباشر <span class="inline-block w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+              </span>
+            </div>
+            <div class="img-zoom overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80" class="h-52 w-full object-cover" alt="قسم دراسي">
+            </div>
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-3">
+                <div class="font-black text-[15px]">مقطع: الكسور والعمليات — رياضيات 4 متوسط</div>
+                <span class="chip bg-emerald-100 text-emerald-700">كفاءة مستهدفة</span>
+              </div>
+              <div class="text-[13px] text-slate-500 font-bold mb-4 leading-relaxed">
+                يُوظف المتعلم الكسور لحلّ وضعيات من الحياة اليومية • الموارد: جمع، طرح، ضرب الكسور • 12 سا
+              </div>
+              <div class="flex items-center justify-between text-[12px] font-bold mb-2">
+                <span>تقدّم المقطع</span><span class="text-dzgreen-600">78%</span>
+              </div>
+              <div class="h-2.5 bg-slate-100 rounded-full overflow-hidden mb-4">
+                <div class="h-full bar-fill w-[78%] bg-gradient-to-l from-dzgreen-500 to-gold-500 rounded-full"></div>
+              </div>
+            </div>
+            <div class="grid grid-cols-3 gap-2 text-center text-[11px] font-black p-4 pt-0">
+              <button onclick="enterDemo('teacher','manhaj')" class="bg-emerald-50 rounded-xl p-2.5 text-dzgreen-700 hover:bg-emerald-100 transition">
+                <i class="fa-solid fa-book-open block text-lg mb-1"></i> المنهاج
+              </button>
+              <button onclick="enterDemo('teacher','library')" class="bg-amber-50 rounded-xl p-2.5 text-amber-700 hover:bg-amber-100 transition">
+                <i class="fa-solid fa-file-lines block text-lg mb-1"></i> المذكرة
+              </button>
+              <button onclick="enterDemo('teacher','moufatch')" class="bg-blue-50 rounded-xl p-2.5 text-blue-700 hover:bg-blue-100 transition">
+                <i class="fa-solid fa-clipboard-check block text-lg mb-1"></i> ملف المفتش
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="absolute -right-3 top-8 glass rounded-2xl px-4 py-3 text-sm font-black float2 hidden md:flex items-center gap-2">
+          <span class="w-9 h-9 rounded-xl bg-green-500 flex items-center justify-center text-white"><i class="fa-solid fa-check"></i></span>
+          تمت المصادقة على دفتر النصوص
+        </div>
+        <div class="absolute -left-3 bottom-10 bg-white rounded-2xl shadow-card px-4 py-3 text-sm font-black float hidden md:flex items-center gap-2 border text-slate-800">
+          <span class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white"><i class="fa-brands fa-facebook-f"></i></span>
+          تم الدخول عبر فيسبوك بنجاح
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10 bg-black/20">
+      <div class="max-w-7xl mx-auto px-4 py-3 marquee-wrap">
+        <div class="marquee text-[13px] font-bold text-emerald-100/90" id="wilayaMarquee"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK ACCESS -->
+  <section class="max-w-7xl mx-auto px-4 -mt-8 relative z-10">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div onclick="enterDemo('teacher','manhaj')" class="card-hover cursor-pointer bg-white rounded-3xl p-6 shadow-card border-t-4 border-dzgreen-500 reveal">
+        <div class="w-14 h-14 rounded-2xl bg-dzgreen-50 text-dzgreen-600 flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-compass-drafting"></i></div>
+        <div class="font-black text-lg mb-1">دليل الأستاذ الشامل</div>
+        <div class="text-sm text-slate-500 font-bold leading-relaxed">منهاج + وثيقة مرافقة + كفاءات + موارد لكل مقطع، مع الحجم الساعي.</div>
+        <div class="mt-3 text-dzgreen-600 font-black text-sm">استكشف الدليل <i class="fa-solid fa-arrow-left"></i></div>
+      </div>
+      <div onclick="enterDemo('teacher','moufatch')" class="card-hover cursor-pointer bg-white rounded-3xl p-6 shadow-card border-t-4 border-gold-500 reveal" data-delay="90">
+        <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-briefcase"></i></div>
+        <div class="font-black text-lg mb-1">حقيبة المفتش</div>
+        <div class="text-sm text-slate-500 font-bold leading-relaxed">20 وثيقة يطلبها المفتش + قائمة تحقق تفاعلية قابلة للطباعة.</div>
+        <div class="mt-3 text-amber-600 font-black text-sm">جهّز ملفك <i class="fa-solid fa-arrow-left"></i></div>
+      </div>
+      <div onclick="enterDemo('teacher','library')" class="card-hover cursor-pointer bg-white rounded-3xl p-6 shadow-card border-t-4 border-blue-500 reveal" data-delay="180">
+        <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-layer-group"></i></div>
+        <div class="font-black text-lg mb-1">بنك المذكرات والفروض</div>
+        <div class="text-sm text-slate-500 font-bold leading-relaxed">مذكرات، فروض، اختبارات، وضعيات انطلاق — Word / PDF / Excel.</div>
+        <div class="mt-3 text-blue-600 font-black text-sm">تصفّح المكتبة <i class="fa-solid fa-arrow-left"></i></div>
+      </div>
+      <div onclick="enterDemo('admin')" class="card-hover cursor-pointer bg-[#0F1E2E] text-white rounded-3xl p-6 shadow-card border-t-4 border-emerald-400 reveal" data-delay="270">
+        <div class="w-14 h-14 rounded-2xl bg-white/10 text-gold-400 flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="font-black text-lg mb-1">فضاء الإدارة</div>
+        <div class="text-sm text-slate-300 font-bold leading-relaxed">تسيير الأساتذة، الأقسام، الإعلانات والتقارير القابلة للتصدير.</div>
+        <div class="mt-3 text-gold-400 font-black text-sm">ادخل كمدير <i class="fa-solid fa-arrow-left"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDE PREVIEW -->
+  <section id="guidePreview" class="max-w-7xl mx-auto px-4 mt-20">
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <span class="chip bg-dzgreen-50 text-dzgreen-700 border border-dzgreen-500/20 reveal">وفق منهاج وزارة التربية الوطنية — الجيل الثاني</span>
+      <h2 class="text-3xl md:text-4xl font-black mt-3 mb-3 reveal" data-delay="80">دليل الأستاذ: كل ما يطلبه منك <span class="text-dzgreen-600">المفتش والمنهاج</span></h2>
+      <p class="text-slate-500 font-bold reveal" data-delay="150">اختر المادة والطور وشاهد المقاطع، الموارد المعرفية، الكفاءة المستهدفة والحجم الساعي — ثم حمّلها فعليًا.</p>
+    </div>
+    <div class="bg-white rounded-[28px] shadow-card border overflow-hidden reveal">
+      <div class="bg-gradient-to-l from-[#04261c] to-dzgreen-600 p-5 flex flex-wrap items-center gap-3">
+        <div class="flex items-center gap-2 text-white font-black"><i class="fa-solid fa-filter text-gold-400"></i> جرّب الدليل التفاعلي:</div>
+        <select id="demoSubject" onchange="renderDemo()" class="rounded-xl px-4 py-2.5 font-bold text-sm bg-white text-slate-800 border-0 min-w-[190px]"></select>
+        <select id="demoLevel" onchange="renderDemo()" class="rounded-xl px-4 py-2.5 font-bold text-sm bg-white text-slate-800 border-0">
+          <option value="1M">الأولى متوسط</option>
+          <option value="2M">الثانية متوسط</option>
+          <option value="3M">الثالثة متوسط</option>
+          <option value="4M" selected>الرابعة متوسط</option>
+        </select>
+        <button onclick="enterDemo('teacher','maqati3')" class="mr-auto bg-gold-500 hover:bg-gold-400 text-[#04261c] font-black px-5 py-2.5 rounded-xl text-sm transition">
+          فتح الدليل الكامل <i class="fa-solid fa-up-right-from-square"></i>
+        </button>
+      </div>
+      <div id="demoContent" class="p-5 grid lg:grid-cols-3 gap-4"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-4 mt-6">
+      <div class="reveal bg-gradient-to-br from-dzgreen-600 to-[#04261c] text-white rounded-3xl p-6">
+        <div class="flex items-center gap-2 font-black mb-2"><i class="fa-solid fa-bullseye text-gold-400"></i> الكفاءة الشاملة (الختامية)</div>
+        <p class="text-sm leading-relaxed text-emerald-50 font-bold" id="compGlobal"></p>
+      </div>
+      <div class="reveal bg-white rounded-3xl p-6 border shadow-card" data-delay="90">
+        <div class="flex items-center gap-2 font-black mb-2"><i class="fa-solid fa-list-check text-dzgreen-600"></i> ماذا يطلب المفتش فعليًا؟</div>
+        <ul class="text-[13px] font-bold text-slate-600 space-y-1.5">
+          <li><i class="fa-solid fa-check text-dzgreen-500 ml-1"></i> دفتر التحضير اليومي + دفتر النصوص مرقّم ومختوم</li>
+          <li><i class="fa-solid fa-check text-dzgreen-500 ml-1"></i> المنهاج + الوثيقة المرافقة + المخطط السنوي</li>
+          <li><i class="fa-solid fa-check text-dzgreen-500 ml-1"></i> دفتر التنقيط + تحليل نتائج الفروض</li>
+          <li><i class="fa-solid fa-check text-dzgreen-500 ml-1"></i> التقويم البيداغوجي والمعالجة البيداغوجية</li>
+        </ul>
+      </div>
+      <div class="reveal bg-gradient-to-br from-gold-500 to-amber-600 text-[#2a1f00] rounded-3xl p-6" data-delay="180">
+        <div class="flex items-center gap-2 font-black mb-2"><i class="fa-solid fa-file-circle-check"></i> وثائق جاهزة للتحميل</div>
+        <div class="flex flex-wrap gap-2 mt-3">
+          <button onclick="downloadCurriculum()" class="bg-white/90 px-3 py-1.5 rounded-full text-[12px] font-black hover:bg-white transition">المخطط السنوي</button>
+          <button onclick="downloadMonthlyPlan()" class="bg-white/90 px-3 py-1.5 rounded-full text-[12px] font-black hover:bg-white transition">التوزيع الشهري</button>
+          <button onclick="downloadSectionCard()" class="bg-white/90 px-3 py-1.5 rounded-full text-[12px] font-black hover:bg-white transition">بطاقة المقطع</button>
+          <button onclick="downloadAssessmentGrid()" class="bg-white/90 px-3 py-1.5 rounded-full text-[12px] font-black hover:bg-white transition">شبكة التقويم</button>
+        </div>
+        <button onclick="downloadFullPack()" class="mt-4 bg-[#04261c] text-white font-black px-5 py-2.5 rounded-xl text-sm w-full btn-shine">
+          <i class="fa-solid fa-download ml-1"></i> تحميل الحزمة الكاملة (4 ملفات)
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBJECTS -->
+  <section id="subjects" class="max-w-7xl mx-auto px-4 mt-20">
+    <div class="flex items-end justify-between flex-wrap gap-3 mb-6">
+      <div>
+        <h2 class="text-3xl font-black reveal">المواد الدراسية <span class="text-dzgreen-600">للطور المتوسط</span></h2>
+        <p class="text-slate-500 font-bold reveal" data-delay="80">12 مادة • 4 مستويات • جميع المقاطع والموارد محيّنة</p>
+      </div>
+      <div class="flex gap-2 flex-wrap" id="levelFilter">
+        <button data-l="1M" class="lvl-tab px-4 py-2 rounded-xl font-black text-sm bg-white border">1 متوسط</button>
+        <button data-l="2M" class="lvl-tab px-4 py-2 rounded-xl font-black text-sm bg-white border">2 متوسط</button>
+        <button data-l="3M" class="lvl-tab px-4 py-2 rounded-xl font-black text-sm bg-white border">3 متوسط</button>
+        <button data-l="4M" class="lvl-tab px-4 py-2 rounded-xl font-black text-sm bg-white border active">4 متوسط</button>
+      </div>
+    </div>
+    <div id="subjectsGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+  </section>
+
+  <!-- INSPECTOR -->
+  <section id="inspector" class="mt-20 bg-[#0F1E2E] pattern relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 py-16 grid lg:grid-cols-2 gap-10 items-center">
+      <div class="text-white">
+        <span class="chip bg-gold-500 text-[#04261c] reveal">ملف زيارة المفتش — Inspection Dossier</span>
+        <h2 class="text-3xl md:text-4xl font-black mt-4 mb-4 leading-snug reveal" data-delay="80">
+          ادخل على المفتش وأنت <span class="text-gold-400">جاهز 100%</span> بدون توتّر
+        </h2>
+        <p class="text-slate-300 font-bold leading-relaxed mb-6 reveal" data-delay="140">
+          جمعنا لك كل ما يطلبه مفتش المادة في المتوسط الجزائري: الدفاتر الإجبارية، الوثائق البيداغوجية، مؤشرات التقويم، الأسئلة الشائعة، مع قائمة تحقق ذكية تحفظ تقدمك وتُصدر لك تقريرًا.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-3 mb-6">
+          <div class="glass rounded-2xl p-4 flex gap-3 reveal">
+            <i class="fa-solid fa-book text-gold-400 text-2xl"></i>
+            <div>
+              <div class="font-black">الدفاتر (5)</div>
+              <div class="text-[12px] text-slate-300 font-bold">تحضير، نصوص، تنقيط، تكوين، تحليل نتائج</div>
+            </div>
+          </div>
+          <div class="glass rounded-2xl p-4 flex gap-3 reveal" data-delay="80">
+            <i class="fa-solid fa-folder-open text-gold-400 text-2xl"></i>
+            <div>
+              <div class="font-black">الوثائق (6)</div>
+              <div class="text-[12px] text-slate-300 font-bold">منهاج، وثيقة مرافقة، مخطط، توزيع، مذكرات</div>
+            </div>
+          </div>
+          <div class="glass rounded-2xl p-4 flex gap-3 reveal" data-delay="160">
+            <i class="fa-solid fa-person-chalkboard text-gold-400 text-2xl"></i>
+            <div>
+              <div class="font-black">الدرس النموذجي</div>
+              <div class="text-[12px] text-slate-300 font-bold">وضعية انطلاق + بناء + تقويم + معالجة</div>
+            </div>
+          </div>
+          <div class="glass rounded-2xl p-4 flex gap-3 reveal" data-delay="240">
+            <i class="fa-solid fa-comments text-gold-400 text-2xl"></i>
+            <div>
+              <div class="font-black">أسئلة المناقشة</div>
+              <div class="text-[12px] text-slate-300 font-bold">أسئلة يطرحها المفتش مع توجيه للإجابة</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <button onclick="enterDemo('teacher','moufatch')" class="btn-shine magnetic bg-gold-500 text-[#04261c] font-black px-7 py-3.5 rounded-2xl">ابدأ قائمة التحقق الآن</button>
+          <button onclick="printInspectorReport()" class="border border-white/25 px-7 py-3.5 rounded-2xl font-black hover:bg-white/10">اطبع تقرير الجاهزية</button>
+        </div>
+      </div>
+      <div>
+        <div class="doc-paper rounded-[24px] p-6 text-slate-800 rotate-1 hover:rotate-0 transition duration-500 reveal">
+          <div class="flex items-center justify-between border-b-2 border-dashed border-amber-200 pb-4 mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-2xl bg-dzgreen-600 text-white flex items-center justify-center text-xl"><i class="fa-solid fa-stamp"></i></div>
+              <div>
+                <div class="font-black">بطاقة الزيارة التفتيشية</div>
+                <div class="text-[12px] text-slate-500 font-bold">مفتشية التربية — الطور المتوسط</div>
+              </div>
+            </div>
+            <span class="chip bg-green-100 text-green-700">وثيقة رسمية</span>
+          </div>
+          <div id="miniCheck" class="space-y-2.5"></div>
+          <div class="mt-4 flex items-center justify-between bg-slate-50 rounded-2xl p-4 border">
+            <div class="text-sm font-black">نسبة الجاهزية <span id="miniPct" class="text-dzgreen-600">0%</span></div>
+            <div class="w-40 h-3 bg-slate-200 rounded-full overflow-hidden">
+              <div id="miniBar" class="h-full w-0 bar-fill bg-gradient-to-l from-dzgreen-500 to-gold-500"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMIN PREVIEW -->
+  <section id="adminPrev" class="max-w-7xl mx-auto px-4 mt-20">
+    <div class="bg-gradient-to-l from-dzgreen-700 via-dzgreen-600 to-emerald-600 rounded-[30px] p-8 md:p-12 text-white relative overflow-hidden reveal">
+      <div class="absolute inset-0 pattern opacity-40"></div>
+      <div class="grid lg:grid-cols-2 gap-10 items-center relative">
+        <div>
+          <span class="bg-white/15 px-4 py-1.5 rounded-full text-[12px] font-black border border-white/20">فضاء خاص بالمدير • المشرف • الأمانة</span>
+          <h2 class="text-3xl md:text-4xl font-black mt-4 mb-4">بوابة الإدارة: سيّر متوسطتك <span class="text-gold-400">بذكاء</span></h2>
+          <ul class="space-y-3 font-bold text-emerald-50">
+            <li class="flex gap-2"><i class="fa-solid fa-circle-check text-gold-400 mt-1"></i> المصادقة على حسابات الأساتذة الجدد (بريد / فيسبوك) بضغطة واحدة</li>
+            <li class="flex gap-2"><i class="fa-solid fa-circle-check text-gold-400 mt-1"></i> لوحة إحصائيات: توزيع الأساتذة، نسب الحضور، نتائج الأقسام</li>
+            <li class="flex gap-2"><i class="fa-solid fa-circle-check text-gold-400 mt-1"></i> نشر الإعلانات والاستدعاءات وإرسال تنبيهات للأساتذة</li>
+            <li class="flex gap-2"><i class="fa-solid fa-circle-check text-gold-400 mt-1"></i> تصدير التقارير الشهرية PDF / Word / Excel للمديرية</li>
+          </ul>
+          <div class="flex flex-wrap gap-3 mt-7">
+            <button onclick="openAuth('register','admin')" class="bg-white text-dzgreen-700 font-black px-7 py-3.5 rounded-2xl hover:scale-105 transition">إنشاء حساب إدارة</button>
+            <button onclick="enterDemo('admin')" class="border border-white/30 px-7 py-3.5 rounded-2xl font-black hover:bg-white/10">معاينة لوحة القيادة</button>
+          </div>
+        </div>
+        <div class="bg-white rounded-3xl p-5 text-slate-800 shadow-2xl">
+          <div class="flex items-center justify-between mb-4">
+            <div class="font-black">نظرة عامة — متوسطة ابن خلدون</div>
+            <span class="chip bg-emerald-100 text-emerald-700"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> مباشر</span>
+          </div>
+          <div class="grid grid-cols-3 gap-2 mb-4 text-center">
+            <div class="bg-emerald-50 rounded-2xl p-3"><div class="font-black text-xl text-dzgreen-700">42</div><div class="text-[11px] font-bold text-slate-500">أستاذ</div></div>
+            <div class="bg-blue-50 rounded-2xl p-3"><div class="font-black text-xl text-blue-700">18</div><div class="text-[11px] font-bold text-slate-500">قسم</div></div>
+            <div class="bg-amber-50 rounded-2xl p-3"><div class="font-black text-xl text-amber-700">96%</div><div class="text-[11px] font-bold text-slate-500">انضباط</div></div>
+          </div>
+          <div class="h-44"><canvas id="prevChart"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section class="max-w-7xl mx-auto px-4 mt-20">
+    <h2 class="text-3xl font-black text-center mb-2 reveal">التسجيل في <span class="text-dzgreen-600">3 خطوات فقط</span></h2>
+    <p class="text-center text-slate-500 font-bold mb-8 reveal" data-delay="80">بالبريد الإلكتروني أو فيسبوك — بدون تعقيد</p>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="reveal bg-white rounded-3xl p-7 shadow-card text-center card-hover border-b-4 border-dzgreen-500">
+        <div class="w-16 h-16 mx-auto rounded-2xl bg-dzgreen-600 text-white text-2xl flex items-center justify-center font-black mb-4 relative">
+          1
+          <span class="absolute -top-2 -left-2 w-7 h-7 bg-gold-500 rounded-full text-[#04261c] text-sm flex items-center justify-center"><i class="fa-solid fa-user"></i></span>
+        </div>
+        <div class="font-black text-lg mb-2">أنشئ حسابك</div>
+        <p class="text-sm text-slate-500 font-bold">اختر صفتك (أستاذ / إدارة) وسجّل بالبريد أو بضغطة فيسبوك واحدة.</p>
+        <div class="flex justify-center gap-2 mt-4">
+          <span class="bg-[#1877F2] text-white px-4 py-2 rounded-xl text-[12px] font-black"><i class="fa-brands fa-facebook-f ml-1"></i> Facebook</span>
+          <span class="bg-slate-100 px-4 py-2 rounded-xl text-[12px] font-black"><i class="fa-solid fa-envelope ml-1 text-dzgreen-600"></i> Email</span>
+        </div>
+      </div>
+      <div class="reveal bg-white rounded-3xl p-7 shadow-card text-center card-hover border-b-4 border-gold-500" data-delay="110">
+        <div class="w-16 h-16 mx-auto rounded-2xl bg-gold-500 text-[#04261c] text-2xl flex items-center justify-center font-black mb-4">2</div>
+        <div class="font-black text-lg mb-2">حدّد مادتك وطورك</div>
+        <p class="text-sm text-slate-500 font-bold">12 مادة و4 مستويات — تُبنى لك مكتبة مخصصة تلقائيًا حسب منهاجك.</p>
+      </div>
+      <div class="reveal bg-white rounded-3xl p-7 shadow-card text-center card-hover border-b-4 border-blue-500" data-delay="220">
+        <div class="w-16 h-16 mx-auto rounded-2xl bg-blue-600 text-white text-2xl flex items-center justify-center font-black mb-4">3</div>
+        <div class="font-black text-lg mb-2">حمّل ودرّس بثقة</div>
+        <p class="text-sm text-slate-500 font-bold">مقاطع، مذكرات، فروض، وملف مفتش جاهز للطبع — وتابع تقدمك.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="max-w-4xl mx-auto px-4 mt-20 mb-16">
+    <h2 class="text-3xl font-black text-center mb-6 reveal">أسئلة شائعة</h2>
+    <div class="space-y-3" id="faqList"></div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-7xl mx-auto px-4 mb-16">
+    <div class="hero-bg pattern rounded-[30px] p-10 md:p-14 text-center text-white reveal relative overflow-hidden">
+      <h2 class="text-3xl md:text-4xl font-black mb-3" id="ctaTitle" style="text-shadow:0 3px 18px rgba(0,0,0,.45)">جاهز لتنظيم سنتك الدراسية؟</h2>
+      <p class="text-emerald-50 font-bold mb-7" style="text-shadow:0 2px 12px rgba(0,0,0,.4)">انضم لآلاف أساتذة المتوسط عبر الجزائر — مجاني بالكامل</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <button onclick="openAuth('register','teacher')" class="magnetic bg-gold-500 text-[#04261c] font-black px-8 py-4 rounded-2xl hover:scale-105 transition">سجّل كأستاذ <i class="fa-solid fa-arrow-left"></i></button>
+        <button onclick="openAuth('register','admin')" class="glass magnetic px-8 py-4 rounded-2xl font-black hover:bg-white/20">سجّل كإدارة</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#04261c] text-white pt-12 pb-6 no-print">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <div class="w-11 h-11 rounded-2xl bg-gold-500 flex items-center justify-center text-[#04261c] text-xl font-black">م</div>
+          <div class="font-black text-lg">منارة المتوسط</div>
+        </div>
+        <p class="text-sm text-emerald-100/70 font-bold leading-relaxed">
+          منصة جزائرية تخدم أستاذ وإدارة الطور المتوسط وفق منهاج وزارة التربية الوطنية — الجيل الثاني.
+        </p>
+        <div class="flex gap-2 mt-4">
+          <a href="#" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-[#1877F2] transition"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-red-500 transition"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-sky-500 transition"><i class="fa-brands fa-telegram"></i></a>
+          <a href="#" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-green-500 transition"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="font-black mb-3 text-gold-400">دليل الأستاذ</div>
+        <ul class="space-y-2 text-sm font-bold text-emerald-50/80">
+          <li class="hover:text-white cursor-pointer transition" onclick="enterDemo('teacher','manhaj')">المنهاج الرسمي</li>
+          <li class="hover:text-white cursor-pointer transition" onclick="enterDemo('teacher','maqati3')">المقاطع والموارد</li>
+          <li class="hover:text-white cursor-pointer transition" onclick="enterDemo('teacher','library')">بنك المذكرات</li>
+          <li class="hover:text-white cursor-pointer transition" onclick="enterDemo('teacher','moufatch')">حقيبة المفتش</li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-black mb-3 text-gold-400">الإدارة</div>
+        <ul class="space-y-2 text-sm font-bold text-emerald-50/80">
+          <li class="hover:text-white cursor-pointer transition" onclick="enterDemo('admin')">لوحة القيادة</li>
+          <li class="hover:text-white cursor-pointer transition" onclick="enterDemo('admin','a-teachers')">تسيير الأساتذة</li>
+          <li class="hover:text-white cursor-pointer transition" onclick="enterDemo('admin','a-ann')">الإعلانات</li>
+          <li class="hover:text-white cursor-pointer transition" onclick="enterDemo('admin','a-rep')">التقارير</li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-black mb-3 text-gold-400">تواصل معنا</div>
+        <div class="text-sm font-bold text-emerald-50/80 space-y-2">
+          <div><i class="fa-solid fa-location-dot ml-2 text-gold-400"></i> الجزائر — جميع الولايات 58</div>
+          <div><i class="fa-solid fa-envelope ml-2 text-gold-400"></i> contact@manara-dz.education</div>
+          <div><i class="fa-solid fa-phone ml-2 text-gold-400"></i> 0550 00 00 00</div>
+        </div>
+        <div class="mt-3 bg-white/10 rounded-2xl p-3 flex gap-2">
+          <input id="nlInput" placeholder="بريدك للنشرة البيداغوجية" class="bg-transparent flex-1 text-sm font-bold placeholder:text-slate-400 border-0">
+          <button onclick="subscribeNews()" class="bg-gold-500 text-[#04261c] px-4 py-2 rounded-xl font-black text-sm">اشترك</button>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-4 text-center text-[12px] text-emerald-100/50 font-bold">
+      © 2026 منارة المتوسط — صُنع بفخر لخدمة المدرسة الجزائرية • جميع الموارد مطابقة لمنهاج وزارة التربية الوطنية
+    </div>
+  </footer>
+</main>
+
+<!-- ==================== VIEW : TEACHER DASHBOARD ==================== -->
+<div id="view-teacher" class="hidden min-h-screen bg-[#EEF3EE]">
+  <div class="flex">
+    <aside class="w-[272px] shrink-0 bg-[#04261c] text-white min-h-screen sticky top-0 h-screen flex flex-col no-print max-lg:hidden">
+      <div class="p-5 flex items-center gap-3 border-b border-white/10">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-[#04261c] font-black text-2xl" id="tAvatar">أ</div>
+        <div class="flex-1 min-w-0">
+          <div class="font-black truncate" id="tName">أستاذ(ة)</div>
+          <div class="text-[11px] text-emerald-200/70 font-bold" id="tMeta">رياضيات • 4 متوسط</div>
+        </div>
+      </div>
+      <div class="p-4">
+        <div class="bg-white/10 rounded-2xl p-3 flex items-center justify-between text-[12px] font-black">
+          <span>جاهزية ملف المفتش</span><span id="sidePct" class="text-gold-400">0%</span>
+        </div>
+        <div class="h-2 bg-white/10 rounded-full mt-2 overflow-hidden">
+          <div id="sideBar" class="h-full w-0 bar-fill bg-gradient-to-l from-gold-400 to-emerald-400"></div>
+        </div>
+      </div>
+      <nav class="flex-1 p-3 space-y-1.5 overflow-y-auto text-[14px] font-bold" id="teacherNav">
+        <button data-tab="overview" class="side-link active w-full flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-white/10 text-right"><i class="fa-solid fa-grip w-5 text-center"></i> لوحتي الرئيسية</button>
+        <button data-tab="manhaj" class="side-link w-full flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-white/10 text-right"><i class="fa-solid fa-book-quran w-5 text-center text-emerald-300"></i> المنهاج الرسمي</button>
+        <button data-tab="maqati3" class="side-link w-full flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-white/10 text-right"><i class="fa-solid fa-layer-group w-5 text-center text-amber-300"></i> المقاطع والموارد <span class="mr-auto text-[10px] bg-gold-500 text-black px-2 py-0.5 rounded-full font-black">مهم</span></button>
+        <button data-tab="kafa" class="side-link w-full flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-white/10 text-right"><i class="fa-solid fa-bullseye w-5 text-center text-red-300"></i> الكفاءات المستهدفة</button>
+        <button data-tab="library" class="side-link w-full flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-white/10 text-right"><i class="fa-solid fa-box-archive w-5 text-center text-blue-300"></i> مكتبة المذكرات</button>
+        <button data-tab="moufatch" class="side-link w-full flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-white/10 text-right"><i class="fa-solid fa-briefcase w-5 text-center text-gold-400"></i> حقيبة المفتش</button>
+        <button data-tab="exams" class="side-link w-full flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-white/10 text-right"><i class="fa-solid fa-calendar-days w-5 text-center text-purple-300"></i> الفروض والاختبارات</button>
+      </nav>
+      <div class="p-4 border-t border-white/10 space-y-2">
+        <button onclick="showView('home')" class="w-full flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 font-bold text-sm"><i class="fa-solid fa-house"></i> عودة للموقع</button>
+        <button onclick="logout()" class="w-full flex items-center gap-2 px-4 py-2.5 rounded-xl bg-red-500/20 text-red-300 hover:bg-red-500 hover:text-white font-bold text-sm transition"><i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج</button>
+      </div>
+    </aside>
+
+    <div class="flex-1 min-w-0">
+      <div class="bg-white border-b sticky top-0 z-40 px-4 md:px-7 py-3 flex items-center gap-3 no-print">
+        <button class="lg:hidden w-10 h-10 rounded-xl bg-slate-100" onclick="document.getElementById('tMobile').classList.toggle('hidden')"><i class="fa-solid fa-bars"></i></button>
+        <div class="hidden md:flex items-center gap-2 bg-slate-100 rounded-xl px-4 py-2.5 flex-1 max-w-md">
+          <i class="fa-solid fa-magnifying-glass text-slate-400"></i>
+          <input id="tSearch" oninput="teacherSearch(this.value)" placeholder="ابحث في المقاطع، الموارد، المذكرات..." class="bg-transparent flex-1 text-sm font-bold border-0">
+        </div>
+        <div class="mr-auto flex items-center gap-2">
+          <select id="tSubSel" onchange="changeTeacherSub(this.value)" class="text-[12px] font-black border rounded-xl px-3 py-2 bg-emerald-50"></select>
+          <select id="tLvlSel" onchange="changeTeacherLvl(this.value)" class="text-[12px] font-black border rounded-xl px-3 py-2 bg-amber-50">
+            <option value="1M">1 متوسط</option>
+            <option value="2M">2 متوسط</option>
+            <option value="3M">3 متوسط</option>
+            <option value="4M" selected>4 متوسط</option>
+          </select>
+          <button onclick="toast('لديك 3 تنبيهات: فروض الأسبوع القادم + زيارة مفتش متوقعة','info')" class="relative w-11 h-11 rounded-xl bg-slate-100 hover:bg-amber-100 transition">
+            <i class="fa-solid fa-bell"></i>
+            <span class="absolute top-1 left-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
+          </button>
+        </div>
+      </div>
+      <div id="tMobile" class="hidden lg:hidden bg-[#04261c] text-white p-3 grid grid-cols-2 gap-2 no-print"></div>
+
+      <div class="p-4 md:p-7 max-w-6xl mx-auto">
+        <!-- OVERVIEW -->
+        <div id="ttab-overview" class="ttab space-y-5">
+          <div class="bg-gradient-to-l from-[#04261c] to-dzgreen-600 rounded-3xl p-6 md:p-8 text-white relative overflow-hidden">
+            <div class="absolute inset-0 pattern opacity-30"></div>
+            <div class="relative flex flex-wrap items-center gap-6">
+              <div class="flex-1 min-w-[260px]">
+                <div class="text-gold-400 font-black text-sm mb-1" id="tHelloDate">السلام عليكم</div>
+                <h2 class="text-2xl md:text-3xl font-black mb-2">مرحبًا <span id="tHelloName">أستاذ(ة)</span> — يوم موفق في القسم</h2>
+                <p class="text-emerald-100/90 font-bold text-sm">لديك اليوم مقطعان مبرمجان + مذكرة جاهزة للتحميل. تقدّمك في المنهاج: <b id="progTxt">42%</b></p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <button onclick="switchTTab('maqati3')" class="bg-gold-500 text-[#04261c] font-black px-5 py-2.5 rounded-xl text-sm">أكمل المقطع الحالي</button>
+                  <button onclick="switchTTab('moufatch')" class="bg-white/15 border border-white/20 px-5 py-2.5 rounded-xl text-sm font-black">راجع حقيبة المفتش</button>
+                </div>
+              </div>
+              <div class="flex items-center gap-5">
+                <div class="relative w-32 h-32">
+                  <svg class="w-32 h-32 -rotate-90" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="10"></circle>
+                    <circle id="ringProg" cx="50" cy="50" r="42" fill="none" stroke="#E8C547" stroke-width="10" stroke-linecap="round" stroke-dasharray="264" stroke-dashoffset="264" class="progress-ring"></circle>
+                  </svg>
+                  <div class="absolute inset-0 flex flex-col items-center justify-center">
+                    <span class="font-black text-2xl" id="ringTxt">0%</span>
+                    <span class="text-[10px] text-emerald-200 font-bold">إنجاز المنهاج</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-4 gap-3">
+            <div class="bg-white rounded-2xl p-4 border shadow-sm flex gap-3">
+              <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-dzgreen-700 flex items-center justify-center text-xl"><i class="fa-solid fa-book-open"></i></div>
+              <div><div class="font-black text-xl" id="kpiMaq">6</div><div class="text-[12px] font-bold text-slate-500">مقاطع في منهاجك</div></div>
+            </div>
+            <div class="bg-white rounded-2xl p-4 border shadow-sm flex gap-3">
+              <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl"><i class="fa-solid fa-file-lines"></i></div>
+              <div><div class="font-black text-xl" id="kpiMud">18</div><div class="text-[12px] font-bold text-slate-500">مذكرة جاهزة</div></div>
+            </div>
+            <div class="bg-white rounded-2xl p-4 border shadow-sm flex gap-3">
+              <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center text-xl"><i class="fa-solid fa-pen-to-square"></i></div>
+              <div><div class="font-black text-xl" id="kpiExam">9</div><div class="text-[12px] font-bold text-slate-500">فروض واختبارات</div></div>
+            </div>
+            <div class="bg-white rounded-2xl p-4 border shadow-sm flex gap-3">
+              <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center text-xl"><i class="fa-solid fa-clock"></i></div>
+              <div><div class="font-black text-xl" id="kpiHours">—</div><div class="text-[12px] font-bold text-slate-500">حجم ساعي إجمالي</div></div>
+            </div>
+          </div>
+
+          <div class="grid lg:grid-cols-3 gap-4">
+            <div class="lg:col-span-2 bg-white rounded-3xl p-5 border shadow-sm">
+              <div class="flex items-center justify-between mb-3">
+                <div class="font-black">تقدّم المقاطع — <span id="ovSubName"></span></div>
+                <button onclick="switchTTab('maqati3')" class="text-[12px] font-black text-dzgreen-600">عرض الكل</button>
+              </div>
+              <div id="ovProgress" class="space-y-3"></div>
+            </div>
+            <div class="bg-white rounded-3xl p-5 border shadow-sm">
+              <div class="font-black mb-3"><i class="fa-solid fa-calendar-week text-dzgreen-600 ml-1"></i> هذا الأسبوع</div>
+              <div id="weekList" class="space-y-2 text-[13px] font-bold"></div>
+              <div class="mt-4 bg-amber-50 border border-amber-200 rounded-2xl p-3 text-[12px] font-bold text-amber-800">
+                <i class="fa-solid fa-triangle-exclamation ml-1"></i> تذكير المفتش: رقّم دفتر النصوص واختم المخطط السنوي قبل 15 أكتوبر.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MANHAJ -->
+        <div id="ttab-manhaj" class="ttab hidden space-y-5">
+          <div class="flex flex-wrap items-center gap-3">
+            <h2 class="text-2xl font-black">المنهاج الرسمي + الوثيقة المرافقة</h2>
+            <span class="chip bg-emerald-100 text-emerald-700">وزارة التربية الوطنية • 2025-2026</span>
+          </div>
+          <div class="grid lg:grid-cols-3 gap-4">
+            <div class="lg:col-span-2 doc-paper rounded-3xl p-6">
+              <div class="flex items-center gap-3 border-b pb-4 mb-4">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Emblem_of_Algeria.svg/120px-Emblem_of_Algeria.svg.png" onerror="this.style.display='none'" class="w-12 h-12 object-contain" alt="">
+                <div>
+                  <div class="font-black">منهاج مادة <span id="manhajSub"></span> — الطور المتوسط</div>
+                  <div class="text-[12px] text-slate-500 font-bold">الكفاءات • المقاطع • الموارد • التقويم • القيم</div>
+                </div>
+                <span class="mr-auto chip bg-green-100 text-green-700">وثيقة رسمية</span>
+              </div>
+              <div id="manhajBody" class="text-[14px] font-bold text-slate-700 leading-loose space-y-3"></div>
+              <div class="grid sm:grid-cols-2 gap-2 mt-5">
+                <button onclick="downloadCurriculum()" class="bg-dzgreen-600 text-white font-black py-3 rounded-2xl text-sm hover:bg-dzgreen-700 transition"><i class="fa-solid fa-download ml-1"></i> تحميل المنهاج (Word)</button>
+                <button onclick="downloadCompanionDoc()" class="bg-[#0F1E2E] text-white font-black py-3 rounded-2xl text-sm"><i class="fa-solid fa-download ml-1"></i> الوثيقة المرافقة</button>
+                <button onclick="downloadYearPlan()" class="border-2 border-dzgreen-600 text-dzgreen-700 font-black py-3 rounded-2xl text-sm"><i class="fa-solid fa-calendar ml-1"></i> المخطط السنوي</button>
+                <button onclick="downloadMonthlyPlan()" class="border-2 border-amber-500 text-amber-700 font-black py-3 rounded-2xl text-sm"><i class="fa-solid fa-table ml-1"></i> التوزيع الشهري</button>
+                <button onclick="printCurriculum()" class="border-2 border-slate-300 text-slate-700 font-black py-3 rounded-2xl text-sm"><i class="fa-solid fa-print ml-1"></i> طباعة / حفظ PDF</button>
+                <button onclick="downloadCurriculumCSV()" class="border-2 border-blue-500 text-blue-700 font-black py-3 rounded-2xl text-sm"><i class="fa-solid fa-file-excel ml-1"></i> تصدير Excel (CSV)</button>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <div class="bg-[#0F1E2E] text-white rounded-3xl p-5">
+                <div class="font-black mb-2 text-gold-400"><i class="fa-solid fa-scale-balanced ml-1"></i> فلسفة المنهاج (الجيل الثاني)</div>
+                <p class="text-[13px] font-bold text-slate-300 leading-relaxed">
+                  المقاربة بالكفاءات: المتعلم محور العملية، الوضعية الانطلاق نقطة البداية، الإدماج والتقويم المستمر، وغرس القيم الوطنية (الهوية، المواطنة، الانفتاح).
+                </p>
+              </div>
+              <div class="bg-white rounded-3xl p-5 border">
+                <div class="font-black mb-3">الحجم الساعي الأسبوعي</div>
+                <div id="hoursBox" class="space-y-2 text-[13px] font-bold"></div>
+              </div>
+              <div class="bg-gradient-to-br from-gold-400 to-amber-500 rounded-3xl p-5 text-[#2a1f00]">
+                <div class="font-black mb-1">دليل استعمال المنهاج</div>
+                <div class="text-[12px] font-bold">كيف تقرأ جدول الكفاءات والموارد؟ شاهد الشرح المبسّط.</div>
+                <button onclick="toast('تشغيل الفيديو التوضيحي...','info')" class="mt-3 bg-[#04261c] text-white w-full py-2.5 rounded-xl font-black text-sm"><i class="fa-solid fa-play ml-1"></i> مشاهدة الشرح</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MAQATI3 -->
+        <div id="ttab-maqati3" class="ttab hidden space-y-4">
+          <div class="flex flex-wrap items-center gap-3">
+            <h2 class="text-2xl font-black">المقاطع التعلمية والموارد المعرفية</h2>
+            <span id="maqCount" class="chip bg-dzgreen-600 text-white"></span>
+            <button onclick="downloadAllSections()" class="mr-auto text-[12px] font-black bg-[#0F1E2E] text-white px-4 py-2 rounded-xl btn-shine"><i class="fa-solid fa-print ml-1"></i> تحميل بطاقات كل المقاطع</button>
+          </div>
+          <div id="maqList" class="space-y-3"></div>
+        </div>
+
+        <!-- KAFA -->
+        <div id="ttab-kafa" class="ttab hidden space-y-4">
+          <h2 class="text-2xl font-black">الكفاءات المستهدفة والختامية</h2>
+          <div class="bg-white rounded-3xl border p-6">
+            <div class="font-black text-dzgreen-700 mb-2"><i class="fa-solid fa-star ml-1"></i> الكفاءة الشاملة للطور المتوسط</div>
+            <p class="font-bold text-slate-600 leading-relaxed text-[14px]" id="kafaGlobal"></p>
+          </div>
+          <div id="kafaList" class="grid md:grid-cols-2 gap-3"></div>
+          <div class="bg-amber-50 border border-amber-200 rounded-3xl p-5 text-[13px] font-bold text-amber-900 leading-relaxed">
+            <i class="fa-solid fa-lightbulb text-amber-500 ml-1"></i>
+            <b>ملاحظة المفتش:</b> صِغ الكفاءة المستهدفة في بداية كل مذكرة بصيغة قابلة للملاحظة والقياس (أن + فعل إجرائي + مورد + سياق)، واربطها بوضعية إدماجية في نهاية المقطع.
+          </div>
+        </div>
+
+        <!-- LIBRARY -->
+        <div id="ttab-library" class="ttab hidden space-y-4">
+          <div class="flex flex-wrap gap-2 items-center">
+            <h2 class="text-2xl font-black">مكتبة المذكرات والموارد</h2>
+            <div class="mr-auto flex gap-2">
+              <select id="libFilter" onchange="renderLibrary()" class="text-[12px] font-black border rounded-xl px-3 py-2">
+                <option value="all">كل الأنواع</option>
+                <option value="مذكرة">مذكرة</option>
+                <option value="فرض">فرض</option>
+                <option value="اختبار">اختبار</option>
+                <option value="وضعية انطلاق">وضعية انطلاق</option>
+                <option value="مخطط سنوي">مخطط سنوي</option>
+                <option value="دليل">دليل</option>
+              </select>
+              <button onclick="downloadLibraryIndex()" class="bg-[#0F1E2E] text-white text-[12px] font-black px-4 py-2 rounded-xl"><i class="fa-solid fa-file-export ml-1"></i> فهرس المكتبة</button>
+            </div>
+          </div>
+          <div id="libGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3"></div>
+        </div>
+
+        <!-- MOUFATCH -->
+        <div id="ttab-moufatch" class="ttab hidden space-y-4">
+          <div class="bg-gradient-to-l from-amber-500 to-gold-400 rounded-3xl p-6 text-[#2a1f00] flex flex-wrap items-center gap-4">
+            <div class="flex-1 min-w-[220px]">
+              <h2 class="text-2xl font-black">حقيبة المفتش — قائمة التحقق الذكية</h2>
+              <p class="text-sm font-bold">علّم على ما جهّزته، احفظ تقدمك، واطبع تقرير الجاهزية لتقديمه يوم الزيارة.</p>
+            </div>
+            <div class="bg-white rounded-2xl px-6 py-4 text-center shadow">
+              <div class="font-black text-3xl" id="inspPctBig">0%</div>
+              <div class="text-[11px] font-black text-slate-500">جاهزية الملف</div>
+            </div>
+          </div>
+          <div class="h-3 bg-white rounded-full overflow-hidden border">
+            <div id="inspBarBig" class="h-full w-0 bar-fill bg-gradient-to-l from-dzgreen-500 via-emerald-400 to-gold-500"></div>
+          </div>
+          <div id="inspCats" class="space-y-4"></div>
+          <div class="flex flex-wrap gap-2">
+            <button onclick="printInspectorReport()" class="bg-[#0F1E2E] text-white font-black px-6 py-3 rounded-2xl text-sm btn-shine"><i class="fa-solid fa-print ml-1"></i> طباعة / حفظ PDF</button>
+            <button onclick="downloadInspectorReport()" class="bg-dzgreen-600 text-white font-black px-6 py-3 rounded-2xl text-sm"><i class="fa-solid fa-file-word ml-1"></i> تحميل التقرير (Word)</button>
+            <button onclick="saveInsp()" class="bg-emerald-700 text-white font-black px-6 py-3 rounded-2xl text-sm"><i class="fa-solid fa-floppy-disk ml-1"></i> حفظ التقدّم</button>
+            <button onclick="toast('تم إرسال طلب مراجعة ملفك لمفتش المقاطعة','info')" class="border-2 border-dzgreen-600 text-dzgreen-700 font-black px-6 py-3 rounded-2xl text-sm">طلب مراجعة قبل الزيارة</button>
+          </div>
+          <div class="bg-white rounded-3xl border p-6">
+            <div class="font-black mb-3"><i class="fa-solid fa-microphone-lines text-red-500 ml-1"></i> 8 أسئلة يطرحها المفتش غالبًا (مع التوجيه)</div>
+            <div id="quizBox" class="grid md:grid-cols-2 gap-2 text-[13px] font-bold"></div>
+          </div>
+        </div>
+
+        <!-- EXAMS -->
+        <div id="ttab-exams" class="ttab hidden space-y-4">
+          <h2 class="text-2xl font-black">رزنامة الفروض والاختبارات 2025/2026</h2>
+          <div class="grid lg:grid-cols-3 gap-4">
+            <div class="lg:col-span-2 bg-white rounded-3xl border overflow-hidden overflow-x-auto">
+              <table class="w-full text-[13px] font-bold min-w-[560px]">
+                <thead>
+                  <tr class="bg-[#04261c] text-white">
+                    <th class="p-3 text-right">الفترة</th>
+                    <th class="p-3">التاريخ</th>
+                    <th class="p-3">النوع</th>
+                    <th class="p-3">الحالة</th>
+                    <th class="p-3">تحميل</th>
+                  </tr>
+                </thead>
+                <tbody id="examTable"></tbody>
+              </table>
+            </div>
+            <div class="space-y-3">
+              <div class="bg-white rounded-3xl border p-5">
+                <div class="font-black mb-3">أضف فرضًا لقسمك</div>
+                <div class="space-y-2">
+                  <select id="exSub" class="w-full border rounded-xl px-3 py-2.5 text-sm font-bold">
+                    <option>الفرض الأول — الفصل الأول</option>
+                    <option>الفرض الثاني — الفصل الأول</option>
+                    <option>اختبار الفصل الأول</option>
+                    <option>الفرض الأول — الفصل الثاني</option>
+                  </select>
+                  <input id="exDate" type="date" class="w-full border rounded-xl px-3 py-2.5 text-sm font-bold">
+                  <button onclick="addExam()" class="w-full bg-dzgreen-600 text-white font-black py-2.5 rounded-xl text-sm">إضافة للرزنامة</button>
+                </div>
+              </div>
+              <button onclick="downloadExamPaper()" class="w-full bg-gold-500 text-[#04261c] font-black py-3 rounded-2xl text-sm btn-shine"><i class="fa-solid fa-download ml-1"></i> تحميل موضوع تجريبي + التصحيح</button>
+              <div class="bg-blue-50 border border-blue-200 rounded-3xl p-5 text-[12px] font-bold text-blue-900 leading-relaxed">
+                <b>تعليمة وزارية:</b> الفروض موحدة على مستوى المؤسسة، مدتها ساعة، وتُصحّح جماعيًا مع التلاميذ مع تخصيص حصة للمعالجة البيداغوجية.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== VIEW : ADMIN DASHBOARD ==================== -->
+<div id="view-admin" class="hidden min-h-screen bg-[#EEF3EE]">
+  <div class="flex">
+    <aside class="w-[272px] shrink-0 bg-[#0F1E2E] text-white min-h-screen sticky top-0 h-screen flex flex-col no-print max-lg:hidden">
+      <div class="p-5 flex items-center gap-3 border-b border-white/10">
+        <div class="w-12 h-12 rounded-2xl bg-gold-500 flex items-center justify-center text-[#0F1E2E] text-xl"><i class="fa-solid fa-building-columns"></i></div>
+        <div>
+          <div class="font-black">إدارة المتوسطة</div>
+          <div class="text-[11px] text-slate-400 font-bold">مدير • صلاحيات كاملة</div>
+        </div>
+      </div>
+      <nav class="flex-1 p-3 space-y-1.5 text-[14px] font-bold" id="adminNav">
+        <button data-tab="a-overview" class="side-link active w-full flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-white/10 text-right"><i class="fa-solid fa-gauge w-5 text-center"></i> نظرة عامة</button>
+        <button data-tab="a-teachers" class="side-link w-full flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-white/10 text-right"><i class="fa-solid fa-users w-5 text-center"></i> الأساتذة <span id="pendingBadge" class="mr-auto text-[10px] bg-red-500 px-2 py-0.5 rounded-full font-black">3</span></button>
+        <button data-tab="a-classes" class="side-link w-full flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-white/10 text-right"><i class="fa-solid fa-school w-5 text-center"></i> الأقسام والتلاميذ</button>
+        <button data-tab="a-ann" class="side-link w-full flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-white/10 text-right"><i class="fa-solid fa-bullhorn w-5 text-center"></i> الإعلانات</button>
+        <button data-tab="a-rep" class="side-link w-full flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-white/10 text-right"><i class="fa-solid fa-file-arrow-down w-5 text-center"></i> التقارير</button>
+      </nav>
+      <div class="p-4 border-t border-white/10 space-y-2">
+        <button onclick="showView('home')" class="w-full flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 font-bold text-sm"><i class="fa-solid fa-house"></i> عودة للموقع</button>
+        <button onclick="logout()" class="w-full flex items-center gap-2 px-4 py-2.5 rounded-xl bg-red-500/20 text-red-300 font-bold text-sm"><i class="fa-solid fa-right-from-bracket"></i> خروج</button>
+      </div>
+    </aside>
+    <div class="flex-1 min-w-0">
+      <div class="bg-white border-b sticky top-0 z-40 px-4 md:px-7 py-3 flex items-center gap-3 no-print">
+        <button class="lg:hidden w-10 h-10 rounded-xl bg-slate-100" onclick="document.getElementById('aMobile').classList.toggle('hidden')"><i class="fa-solid fa-bars"></i></button>
+        <div class="font-black">لوحة قيادة الإدارة — <span class="text-dzgreen-600">متوسطة ابن خلدون • الجزائر وسط</span></div>
+        <div class="mr-auto flex gap-2">
+          <button onclick="openAddTeacher()" class="bg-dzgreen-600 text-white text-[12px] font-black px-4 py-2.5 rounded-xl"><i class="fa-solid fa-plus ml-1"></i> أستاذ جديد</button>
+          <button onclick="downloadMonthlyReport()" class="border text-[12px] font-black px-4 py-2.5 rounded-xl"><i class="fa-solid fa-download ml-1"></i> تصدير التقرير</button>
+        </div>
+      </div>
+      <div id="aMobile" class="hidden lg:hidden bg-[#0F1E2E] text-white p-3 grid grid-cols-2 gap-2"></div>
+
+      <div class="p-4 md:p-7 max-w-6xl mx-auto">
+        <div id="atab-a-overview" class="atab space-y-5">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <div class="bg-white rounded-3xl p-5 border shadow-sm">
+              <div class="flex justify-between items-start">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl"><i class="fa-solid fa-chalkboard-user"></i></div>
+                <span class="chip bg-green-100 text-green-700">+4 هذا الشهر</span>
+              </div>
+              <div class="font-black text-3xl mt-2" id="statTeachers">42</div>
+              <div class="text-[12px] font-bold text-slate-500">أستاذ (بريد + فيسبوك)</div>
+            </div>
+            <div class="bg-white rounded-3xl p-5 border shadow-sm">
+              <div class="flex justify-between items-start">
+                <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center text-xl"><i class="fa-solid fa-children"></i></div>
+                <span class="chip bg-blue-100 text-blue-700">18 قسم</span>
+              </div>
+              <div class="font-black text-3xl mt-2">612</div>
+              <div class="text-[12px] font-bold text-slate-500">تلميذ متمدرس</div>
+            </div>
+            <div class="bg-white rounded-3xl p-5 border shadow-sm">
+              <div class="flex justify-between items-start">
+                <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl"><i class="fa-solid fa-user-check"></i></div>
+                <span class="chip bg-amber-100 text-amber-700">ممتاز</span>
+              </div>
+              <div class="font-black text-3xl mt-2">96%</div>
+              <div class="text-[12px] font-bold text-slate-500">نسبة حضور الأساتذة</div>
+            </div>
+            <div class="bg-[#04261c] text-white rounded-3xl p-5 shadow-sm">
+              <div class="w-12 h-12 rounded-2xl bg-gold-500 text-[#04261c] flex items-center justify-center text-xl"><i class="fa-solid fa-bell"></i></div>
+              <div class="font-black text-3xl mt-2">5</div>
+              <div class="text-[12px] font-bold text-emerald-200">إعلانات نشطة</div>
+            </div>
+          </div>
+          <div class="grid lg:grid-cols-2 gap-4">
+            <div class="bg-white rounded-3xl p-5 border">
+              <div class="font-black mb-3">توزيع الأساتذة حسب المادة</div>
+              <div class="h-64"><canvas id="chSubjects"></canvas></div>
+            </div>
+            <div class="bg-white rounded-3xl p-5 border">
+              <div class="font-black mb-3">الحضور الأسبوعي</div>
+              <div class="h-64"><canvas id="chAttend"></canvas></div>
+            </div>
+          </div>
+          <div class="bg-white rounded-3xl p-5 border">
+            <div class="font-black mb-3">أحدث النشاطات (التسجيلات الجديدة)</div>
+            <div id="actList" class="space-y-2 text-[13px] font-bold"></div>
+          </div>
+        </div>
+
+        <div id="atab-a-teachers" class="atab hidden space-y-4">
+          <div class="flex flex-wrap gap-2 items-center">
+            <h2 class="text-2xl font-black">تسيير الأساتذة</h2>
+            <div class="mr-auto flex gap-2">
+              <input id="admSearch" oninput="renderTeachers(this.value)" placeholder="بحث بالاسم أو المادة..." class="border rounded-xl px-4 py-2 text-sm font-bold w-52">
+              <button onclick="openAddTeacher()" class="bg-dzgreen-600 text-white text-[13px] font-black px-5 py-2 rounded-xl">+ إضافة</button>
+            </div>
+          </div>
+          <div class="bg-white rounded-3xl border overflow-hidden overflow-x-auto">
+            <table class="w-full text-[13px] font-bold min-w-[720px]">
+              <thead>
+                <tr class="bg-slate-50 text-slate-500">
+                  <th class="p-3 text-right">الأستاذ</th>
+                  <th class="p-3">المادة</th>
+                  <th class="p-3">الطور</th>
+                  <th class="p-3">طريقة التسجيل</th>
+                  <th class="p-3">الحالة</th>
+                  <th class="p-3">إجراءات</th>
+                </tr>
+              </thead>
+              <tbody id="teachersTable"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="atab-a-classes" class="atab hidden space-y-4">
+          <h2 class="text-2xl font-black">الأقسام والتلاميذ</h2>
+          <div id="classesGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3"></div>
+        </div>
+
+        <div id="atab-a-ann" class="atab hidden space-y-4">
+          <div class="flex items-center gap-3">
+            <h2 class="text-2xl font-black">الإعلانات والاستدعاءات</h2>
+            <button onclick="document.getElementById('annForm').classList.toggle('hidden')" class="mr-auto bg-dzgreen-600 text-white text-[13px] font-black px-5 py-2.5 rounded-xl">+ إعلان جديد</button>
+          </div>
+          <div id="annForm" class="hidden bg-white rounded-3xl border p-5 space-y-2">
+            <input id="annTitle" placeholder="عنوان الإعلان..." class="w-full border rounded-xl px-4 py-2.5 font-bold text-sm">
+            <textarea id="annBody" placeholder="نص الإعلان..." class="w-full border rounded-xl px-4 py-2.5 font-bold text-sm" rows="3"></textarea>
+            <div class="flex gap-2">
+              <select id="annTo" class="border rounded-xl px-3 py-2 font-bold text-sm">
+                <option>جميع الأساتذة</option>
+                <option>أساتذة السنة الرابعة</option>
+                <option>الأساتذة الجدد</option>
+              </select>
+              <button onclick="publishAnn()" class="bg-gold-500 text-[#04261c] font-black px-6 py-2 rounded-xl text-sm">نشر الآن</button>
+            </div>
+          </div>
+          <div id="annList" class="space-y-3"></div>
+        </div>
+
+        <div id="atab-a-rep" class="atab hidden space-y-4">
+          <h2 class="text-2xl font-black">التقارير والتصدير</h2>
+          <div class="grid md:grid-cols-3 gap-3">
+            <div class="bg-white rounded-3xl border p-6 text-center">
+              <i class="fa-solid fa-file-pdf text-4xl text-red-500 mb-3"></i>
+              <div class="font-black">التقرير الشهري للمديرية</div>
+              <div class="text-[12px] text-slate-500 font-bold mb-3">الحضور + النتائج + الانضباط</div>
+              <button onclick="downloadMonthlyReport()" class="bg-red-500 text-white font-black px-5 py-2.5 rounded-xl text-sm w-full">إنشاء التقرير</button>
+            </div>
+            <div class="bg-white rounded-3xl border p-6 text-center">
+              <i class="fa-solid fa-table text-4xl text-emerald-600 mb-3"></i>
+              <div class="font-black">قوائم الأساتذة</div>
+              <div class="text-[12px] text-slate-500 font-bold mb-3">تصدير شامل مع المواد والأقسام</div>
+              <button onclick="downloadTeachersCSV()" class="bg-emerald-600 text-white font-black px-5 py-2.5 rounded-xl text-sm w-full">تصدير Excel</button>
+            </div>
+            <div class="bg-white rounded-3xl border p-6 text-center">
+              <i class="fa-solid fa-chart-pie text-4xl text-blue-500 mb-3"></i>
+              <div class="font-black">تحليل نتائج الفصل</div>
+              <div class="text-[12px] text-slate-500 font-bold mb-3">نسب النجاح حسب المادة والقسم</div>
+              <button onclick="downloadResultsAnalysis()" class="bg-blue-600 text-white font-black px-5 py-2.5 rounded-xl text-sm w-full">عرض التحليل</button>
+            </div>
+          </div>
+          <div class="bg-white rounded-3xl border p-5">
+            <div class="font-black mb-3">معاينة التقرير</div>
+            <div class="doc-paper rounded-2xl p-6 text-[13px] font-bold leading-loose">
+              الجمهورية الجزائرية — مديرية التربية لولاية الجزائر<br>
+              متوسطة ابن خلدون — التقرير البيداغوجي الشهري (أكتوبر 2025)<br>
+              • عدد الأساتذة: 42 (38 مرسّم + 4 مستخلف) • نسبة الحضور: 96%<br>
+              • المقاطع المنجزة: 68% من المخطط • زيارات المفتشين: 3 (إيجابية)<br>
+              • التوصية: تكثيف المعالجة البيداغوجية لأقسام 4م3 و 1م2.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== AUTH MODAL ==================== -->
+<div id="authModal" class="hidden fixed inset-0 z-[130] modal-bg flex items-center justify-center p-4">
+  <div class="bg-white rounded-[28px] w-full max-w-[520px] overflow-hidden shadow-2xl toast-in max-h-[92vh] overflow-y-auto">
+    <div class="bg-gradient-to-l from-[#04261c] to-dzgreen-600 p-6 text-white relative">
+      <button onclick="closeAuth()" class="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/15 hover:bg-white/30 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-2xl bg-gold-500 flex items-center justify-center text-[#04261c] text-2xl font-black">م</div>
+        <div>
+          <div class="font-black text-lg" id="authTitle">إنشاء حساب جديد</div>
+          <div class="text-[12px] text-emerald-200 font-bold">منارة المتوسط — فضاء آمن للأسرة التربوية</div>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-2 mt-4 bg-black/20 p-1.5 rounded-2xl">
+        <button id="roleTeacher" onclick="setRole('teacher')" class="py-2.5 rounded-xl font-black text-sm bg-gold-500 text-[#04261c] transition"><i class="fa-solid fa-chalkboard-user ml-1"></i> حساب أستاذ(ة)</button>
+        <button id="roleAdmin" onclick="setRole('admin')" class="py-2.5 rounded-xl font-black text-sm text-white/80 transition"><i class="fa-solid fa-building-columns ml-1"></i> حساب إدارة</button>
+      </div>
+    </div>
+    <div class="p-6">
+      <div class="grid grid-cols-2 gap-2 mb-4">
+        <button onclick="switchAuthTab('register')" id="tabReg" class="py-2.5 rounded-xl font-black text-sm bg-dzgreen-600 text-white">تسجيل جديد</button>
+        <button onclick="switchAuthTab('login')" id="tabLog" class="py-2.5 rounded-xl font-black text-sm bg-slate-100 text-slate-500">تسجيل الدخول</button>
+      </div>
+      <button onclick="facebookLogin()" class="w-full bg-[#1877F2] hover:bg-[#1466d6] text-white font-black py-3.5 rounded-2xl flex items-center justify-center gap-3 transition shadow-lg mb-3">
+        <span class="w-9 h-9 bg-white rounded-full flex items-center justify-center text-[#1877F2] text-lg"><i class="fa-brands fa-facebook-f"></i></span>
+        المتابعة عبر فيسبوك
+        <span class="text-[10px] bg-white/20 px-2 py-1 rounded-full">سريع • آمن</span>
+      </button>
+      <button onclick="toast('تسجيل الدخول عبر Google قريبًا — استعمل البريد أو فيسبوك','info')" class="w-full border-2 border-slate-200 hover:border-slate-300 font-black py-3 rounded-2xl flex items-center justify-center gap-2 transition text-sm mb-4">
+        <img src="https://www.google.com/favicon.ico" class="w-5 h-5" alt=""> المتابعة عبر Google
+      </button>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="flex-1 h-px bg-slate-200"></span>
+        <span class="text-[12px] font-black text-slate-400">أو بالبريد الإلكتروني</span>
+        <span class="flex-1 h-px bg-slate-200"></span>
+      </div>
+
+      <div id="regFields" class="space-y-3">
+        <div class="grid grid-cols-2 gap-2">
+          <input id="rFirst" placeholder="الاسم" class="border-2 border-slate-100 rounded-2xl px-4 py-3 font-bold text-sm bg-slate-50">
+          <input id="rLast" placeholder="اللقب" class="border-2 border-slate-100 rounded-2xl px-4 py-3 font-bold text-sm bg-slate-50">
+        </div>
+        <input id="rEmail" type="email" placeholder="البريد الإلكتروني المهني" class="w-full border-2 border-slate-100 rounded-2xl px-4 py-3 font-bold text-sm bg-slate-50" dir="ltr" style="text-align:right">
+        <div class="relative">
+          <input id="rPass" type="password" placeholder="كلمة المرور (6 أحرف فأكثر)" class="w-full border-2 border-slate-100 rounded-2xl px-4 py-3 font-bold text-sm bg-slate-50 pl-12">
+          <button type="button" onclick="togglePass('rPass')" class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"><i class="fa-solid fa-eye"></i></button>
+        </div>
+        <div id="teacherExtra" class="grid grid-cols-2 gap-2">
+          <select id="rSubject" class="border-2 border-slate-100 rounded-2xl px-3 py-3 font-bold text-sm bg-slate-50"></select>
+          <select id="rWilaya" class="border-2 border-slate-100 rounded-2xl px-3 py-3 font-bold text-sm bg-slate-50"></select>
+        </div>
+        <div id="adminExtra" class="hidden grid-cols-2 gap-2">
+          <input id="rSchool" placeholder="اسم المتوسطة" class="border-2 border-slate-100 rounded-2xl px-4 py-3 font-bold text-sm bg-slate-50">
+          <select id="rPost" class="border-2 border-slate-100 rounded-2xl px-3 py-3 font-bold text-sm bg-slate-50">
+            <option>مدير(ة)</option>
+            <option>نائب مدير</option>
+            <option>مستشار تربية</option>
+            <option>مشرف تربوي</option>
+            <option>أمانة / مقتصدية</option>
+          </select>
+        </div>
+        <label class="flex items-start gap-2 text-[12px] font-bold text-slate-500">
+          <input type="checkbox" id="rTerms" checked class="mt-1 accent-emerald-700">
+          أوافق على ميثاق المنصة وأتعهد باستعمال الموارد لأغراض بيداغوجية وفق توجيهات وزارة التربية الوطنية.
+        </label>
+        <button onclick="doRegister()" class="w-full btn-shine bg-gradient-to-l from-dzgreen-600 to-dzgreen-500 text-white font-black py-4 rounded-2xl shadow-soft hover:scale-[1.01] transition">
+          <i class="fa-solid fa-user-plus ml-1"></i> إنشاء الحساب والدخول للمنصة
+        </button>
+      </div>
+
+      <div id="logFields" class="hidden space-y-3">
+        <input id="lEmail" type="email" placeholder="البريد الإلكتروني" class="w-full border-2 border-slate-100 rounded-2xl px-4 py-3 font-bold text-sm bg-slate-50" dir="ltr" style="text-align:right">
+        <div class="relative">
+          <input id="lPass" type="password" placeholder="كلمة المرور" class="w-full border-2 border-slate-100 rounded-2xl px-4 py-3 font-bold text-sm bg-slate-50 pl-12">
+          <button type="button" onclick="togglePass('lPass')" class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"><i class="fa-solid fa-eye"></i></button>
+        </div>
+        <div class="flex justify-between text-[12px] font-black">
+          <label class="flex gap-1 items-center text-slate-500"><input type="checkbox" checked class="accent-emerald-700"> تذكرني</label>
+          <button onclick="toast('تم إرسال رابط الاستعادة لبريدك','info')" class="text-dzgreen-600">نسيت كلمة المرور؟</button>
+        </div>
+        <button onclick="doLogin()" class="w-full btn-shine bg-[#0F1E2E] text-white font-black py-4 rounded-2xl hover:bg-black transition">
+          <i class="fa-solid fa-right-to-bracket ml-1"></i> دخول الفضاء الخاص
+        </button>
+        <div class="bg-blue-50 border border-blue-100 rounded-2xl p-3 text-[12px] font-bold text-blue-800">
+          حساب تجريبي: أستاذ → <b dir="ltr">prof@manara.dz</b> / <b dir="ltr">123456</b> • إدارة → <b dir="ltr">admin@manara.dz</b> / <b dir="ltr">123456</b>
+          <button onclick="fillDemo('teacher')" class="text-blue-600 underline mr-1">تعبئة تلقائية</button>
+        </div>
+      </div>
+      <div class="mt-4 text-center text-[11px] text-slate-400 font-bold">
+        <i class="fa-solid fa-lock ml-1"></i> حماية بتشفير SSL • لا نشارك بياناتك • مطابق لقانون حماية المعطيات
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== FACEBOOK MOCK ==================== -->
+<div id="fbModal" class="hidden fixed inset-0 z-[140] modal-bg flex items-center justify-center p-4">
+  <div class="rounded-3xl w-full max-w-[420px] overflow-hidden shadow-2xl toast-in" style="background:linear-gradient(#fff,#f0f2f5)">
+    <div class="bg-[#1877F2] text-white p-4 flex items-center gap-2 font-black">
+      <i class="fa-brands fa-facebook text-2xl"></i> Facebook
+      <span class="mr-auto text-[11px] font-bold opacity-80" dir="ltr">facebook.com</span>
+    </div>
+    <div class="p-6 text-center">
+      <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-dzgreen-500 to-emerald-700 text-white flex items-center justify-center text-3xl font-black mb-3 border-4 border-white shadow-xl">م</div>
+      <div class="font-black text-lg">منارة المتوسط</div>
+      <div class="text-[13px] text-slate-500 font-bold mb-4">يطلب الإذن للوصول إلى: اسمك وصورة ملفك وبريدك الإلكتروني</div>
+      <div class="flex items-center gap-3 bg-white border rounded-2xl p-3 mb-4 text-right">
+        <img src="https://i.pravatar.cc/100?img=12" class="w-12 h-12 rounded-full" alt="">
+        <div class="flex-1">
+          <div class="font-black text-sm" id="fbNamePrev">أستاذ(ة) جديد</div>
+          <div class="text-[12px] text-slate-500">المتابعة باسم هذا الحساب</div>
+        </div>
+        <i class="fa-solid fa-circle-check text-[#1877F2] text-xl"></i>
+      </div>
+      <div id="fbLoad" class="hidden py-4">
+        <div class="w-10 h-10 mx-auto border-4 border-[#1877F2] border-t-transparent rounded-full animate-spin"></div>
+        <div class="text-[13px] font-black text-slate-500 mt-2">جاري التحقق الآمن...</div>
+      </div>
+      <div id="fbBtns" class="grid grid-cols-2 gap-2">
+        <button onclick="closeFb()" class="border font-black py-3 rounded-2xl text-sm bg-white">إلغاء</button>
+        <button onclick="confirmFb()" class="bg-[#1877F2] text-white font-black py-3 rounded-2xl text-sm">متابعة</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== RESOURCE MODAL ==================== -->
+<div id="resModal" class="hidden fixed inset-0 z-[130] modal-bg flex items-center justify-center p-4">
+  <div class="bg-white rounded-3xl w-full max-w-[580px] overflow-hidden toast-in max-h-[90vh] overflow-y-auto">
+    <div class="bg-gradient-to-l from-[#04261c] to-dzgreen-600 p-5 text-white flex items-center gap-3">
+      <div id="resIcon" class="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center text-xl"></div>
+      <div class="flex-1">
+        <div id="resTitle" class="font-black"></div>
+        <div id="resMeta" class="text-[12px] text-emerald-200 font-bold"></div>
+      </div>
+      <button onclick="closeRes()" class="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="p-6">
+      <div class="doc-paper rounded-2xl p-5 text-[13px] font-bold leading-loose text-slate-700" id="resPreview"></div>
+      <div class="grid grid-cols-3 gap-2 mt-4">
+        <button onclick="downloadCurrentResource('doc')" class="bg-blue-600 text-white font-black py-2.5 rounded-xl text-[12px]"><i class="fa-solid fa-file-word ml-1"></i> تحميل Word</button>
+        <button onclick="printCurrentResource()" class="bg-red-500 text-white font-black py-2.5 rounded-xl text-[12px]"><i class="fa-solid fa-file-pdf ml-1"></i> PDF / طباعة</button>
+        <button onclick="downloadCurrentResource('txt')" class="border-2 border-gold-500 text-amber-700 font-black py-2.5 rounded-xl text-[12px]"><i class="fa-solid fa-download ml-1"></i> نص / CSV</button>
+      </div>
+      <div class="mt-3 text-[11px] text-slate-400 font-bold text-center">كل الملفات تُولَّد فعليًا على جهازك — بدون روابط وهمية أو صفحات فارغة.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== ADD TEACHER MODAL ==================== -->
+<div id="addTModal" class="hidden fixed inset-0 z-[130] modal-bg flex items-center justify-center p-4">
+  <div class="bg-white rounded-3xl w-full max-w-[440px] p-6 toast-in">
+    <div class="font-black text-lg mb-4">إضافة أستاذ جديد</div>
+    <div class="space-y-2">
+      <input id="ntName" placeholder="الاسم الكامل" class="w-full border rounded-xl px-4 py-2.5 font-bold text-sm">
+      <div class="grid grid-cols-2 gap-2">
+        <select id="ntSub" class="border rounded-xl px-3 py-2.5 font-bold text-sm"></select>
+        <select id="ntLvl" class="border rounded-xl px-3 py-2.5 font-bold text-sm">
+          <option>1 متوسط</option><option>2 متوسط</option><option>3 متوسط</option><option>4 متوسط</option>
+        </select>
+      </div>
+      <input id="ntEmail" placeholder="البريد الإلكتروني" class="w-full border rounded-xl px-4 py-2.5 font-bold text-sm" dir="ltr" style="text-align:right">
+      <button onclick="addTeacherManual()" class="w-full bg-dzgreen-600 text-white font-black py-3 rounded-xl text-sm">إضافة وإرسال دعوة</button>
+      <button onclick="document.getElementById('addTModal').classList.add('hidden')" class="w-full border font-black py-2.5 rounded-xl text-sm text-slate-500">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TOASTS ==================== -->
+<div id="toasts" class="fixed bottom-5 right-5 z-[160] space-y-2 max-w-[340px]"></div>
+
+<script>
+/* =========================================================
+   البيانات الأساسية
+========================================================= */
+const SUBJECTS = [
+  {id:'math', name:'الرياضيات', icon:'fa-square-root-variable', color:'#0B6B4A', bg:'#e6f4ec', hours:'5 سا/أسبوع'},
+  {id:'arab', name:'اللغة العربية', icon:'fa-book-open', color:'#7c2d12', bg:'#fef0e8', hours:'5 سا/أسبوع'},
+  {id:'fr', name:'اللغة الفرنسية', icon:'fa-language', color:'#1d4ed8', bg:'#e8effe', hours:'4 سا/أسبوع'},
+  {id:'en', name:'اللغة الإنجليزية', icon:'fa-globe', color:'#6d28d9', bg:'#f0e8ff', hours:'3 سا/أسبوع'},
+  {id:'scnat', name:'العلوم الطبيعية', icon:'fa-dna', color:'#15803d', bg:'#e6f6e8', hours:'2 سا/أسبوع'},
+  {id:'phys', name:'الفيزياء والتكنولوجيا', icon:'fa-atom', color:'#b45309', bg:'#fef3e2', hours:'2 سا/أسبوع'},
+  {id:'hist', name:'التاريخ والجغرافيا', icon:'fa-earth-africa', color:'#92400e', bg:'#fdf0dd', hours:'3 سا/أسبوع'},
+  {id:'isl', name:'التربية الإسلامية', icon:'fa-moon', color:'#065f46', bg:'#dff5ec', hours:'2 سا/أسبوع'},
+  {id:'civ', name:'التربية المدنية', icon:'fa-scale-balanced', color:'#0e7490', bg:'#e0f6fd', hours:'1 سا/أسبوع'},
+  {id:'inf', name:'الإعلام الآلي', icon:'fa-computer', color:'#334155', bg:'#eef2f7', hours:'1 سا/أسبوع'},
+  {id:'sport', name:'التربية البدنية', icon:'fa-person-running', color:'#dc2626', bg:'#fee9e9', hours:'2 سا/أسبوع'},
+  {id:'art', name:'التربية الفنية', icon:'fa-palette', color:'#db2777', bg:'#fde8f2', hours:'1 سا/أسبوع'}
+];
+
+const LEVELS = {
+  '1M': {name:'الأولى متوسط', short:'1 متوسط'},
+  '2M': {name:'الثانية متوسط', short:'2 متوسط'},
+  '3M': {name:'الثالثة متوسط', short:'3 متوسط'},
+  '4M': {name:'الرابعة متوسط', short:'4 متوسط'}
+};
+
+const CURR = {
+  math: {
+    global:'في نهاية الطور المتوسط، يوظف المتعلم معارفه في الأعداد، الهندسة والقياس لحلّ وضعيات مركبة ودحض ادعاءات بالبرهان، تحضيرًا لشهادة التعليم المتوسط.',
+    competencies:['يحلّ مشكلات عددية ويبرهن صحة النتيجة','يمثّل ويحلّل وضعيات بتوظيف الدوال والإحصاء','ينشئ ويبرهن في الهندسة المستوية والفضائية','يوظف الأدوات الرقمية والقياس في وضعيات واقعية'],
+    units:{
+      '1M':[
+        {t:'الأعداد الطبيعية والعشرية', res:['قراءة وكتابة الأعداد العشرية','جمع وطرح وضرب الأعداد','القسمة الإقليدية','المدور والقيمة المقربة'], kafa:'يستعمل الأعداد العشرية لحلّ وضعيات من المحيط', h:'14 سا', w:5},
+        {t:'الكسور والأعداد النسبية (مدخل)', res:['مفهوم الكسر','اختزال الكسور','مقارنة الكسور','جمع كسرين'], kafa:'يوظف الكسور في وضعيات التقسيم العادل', h:'12 سا', w:4},
+        {t:'الهندسة: المستقيمات والزوايا', res:['التعامد والتوازي','منصف الزاوية','التماثل المحوري','المثلثات'], kafa:'ينشئ أشكالًا هندسية باستعمال الأدوات بدقة', h:'16 سا', w:6},
+        {t:'التناسبية وتنظيم المعطيات', res:['جداول التناسبية','النسب المئوية','المخططات والتمثيلات'], kafa:'يعالج وضعيات تناسبية من الحياة اليومية', h:'10 سا', w:4}
+      ],
+      '2M':[
+        {t:'الأعداد الناطقة والعمليات', res:['جمع وطرح الأعداد النسبية','ضرب وقسمة الأعداد الناطقة','الأولوية في الحساب'], kafa:'يحسب بذكاء موظفًا خواص العمليات', h:'14 سا', w:5},
+        {t:'الحساب الحرفي والمعادلات', res:['تبسيط عبارات حرفية','حلّ معادلة من الدرجة الأولى','وضعيات تؤول إلى معادلة'], kafa:'ينمذج وضعية بمعادلة ويحلها', h:'13 سا', w:5},
+        {t:'المثلث القائم والدائرة', res:['نظرية فيثاغورس (مدخل)','الدائرة المحيطة','الانسحاب'], kafa:'يبرهن على استقامة وتعاند بتوظيف الخواص', h:'15 سا', w:5},
+        {t:'المساحات والحجوم', res:['مساحة متوازي الأضلاع والمثلث','حجم الموشور','التحويلات'], kafa:'يحسب مساحات وحجومًا في وضعيات واقعية', h:'11 سا', w:4}
+      ],
+      '3M':[
+        {t:'الأعداد الحقيقية والقوى', res:['القوى الصحيحة','الكتابة العلمية','الجذور التربيعية'], kafa:'يستعمل القوى والجذور في الحساب والتقدير', h:'13 سا', w:5},
+        {t:'الحساب الحرفي: النشر والتحليل', res:['النشر بالمتطابقات الشهيرة','التحليل بعامل مشترك','حلّ معادلات جداء'], kafa:'يحلّ معادلات من الدرجة الأولى بتوظيف التحليل', h:'14 سا', w:5},
+        {t:'الدوال الخطية (مدخل)', res:['مفهوم الدالة','الدالة الخطية وتمثيلها','قراءة منحنى'], kafa:'يمثّل وضعية تناسبية بدالة خطية', h:'10 سا', w:4},
+        {t:'الهندسة الفضائية', res:['الموشور والأسطوانة','الهرم والمخروط','التمثيل بالمنظور'], kafa:'يحسب حجوم مجسمات ويمثلها', h:'12 سا', w:4},
+        {t:'الإحصاء والاحتمالات (مدخل)', res:['التكرارات والنسب','المتوسط الحسابي','احتمال حدث بسيط'], kafa:'يفسر معطيات إحصائية ويتوقع', h:'8 سا', w:3}
+      ],
+      '4M':[
+        {t:'الأعداد الطبيعية والناطقة — PGCD', res:['القاسم المشترك الأكبر','الاختزال','حلّ مسائل قابلية القسمة'], kafa:'يوظف PGCD لاختزال الكسور وحلّ وضعيات', h:'10 سا', w:4},
+        {t:'القوى والجذور والحساب العددي', res:['قواعد القوى','تبسيط الجذور','الكتابة العلمية'], kafa:'يحسب بدقة ويتحقق من معقولية النتيجة', h:'11 سا', w:4},
+        {t:'الحساب الحرفي والمعادلات والمتراجحات', res:['المتطابقات الشهيرة','معادلة جداء معدوم','المتراجحات من الدرجة الأولى'], kafa:'ينمذج وضعية بمعادلة/متراجحة ويحلها', h:'15 سا', w:5},
+        {t:'الدوال: الخطية، التآلفية والإحصاء', res:['الدالة التآلفية','قراءة التمثيل البياني','السلاسل الإحصائية والوسيط'], kafa:'يدرس دالة تآلفية ويفسر منحنى بيانيًا', h:'14 سا', w:5},
+        {t:'الهندسة: الأشعة، الانسحاب والمعالم', res:['الأشعة وتساويها','الانسحاب وخواصه','نظرية طالس وفيثاغورس','النسب المثلثية sin cos tan'], kafa:'يبرهن هندسيًا ويحسب أطوالًا وزوايا بدقة', h:'18 سا', w:6},
+        {t:'الهندسة في الفضاء', res:['الكرة والجلة','الأهرامات والمخروط','التكبير والتصغير'], kafa:'يحسب حجومًا ومساحات في الفضاء', h:'10 سا', w:4}
+      ]
+    }
+  },
+  arab: {
+    global:'يتواصل المتعلم شفهيًا وكتابيًا بلغة سليمة، يفهم النصوص ويحللها وينتج نصوصًا حجاجية ووصفية وسردية، مع تعزيز الهوية الوطنية.',
+    competencies:['يستمع ويتحدث بوضوح وثقة','يقرأ ويفهم ويوظف استراتيجيات القراءة','يحلل النصوص ويبني حجاجة متماسكة','ينتج نصوصًا متنوعة بكتابة سليمة'],
+    units:{
+      '1M':[
+        {t:'الوصف والهوية الوطنية', res:['النص الوصفي','القواعد: الفعل والفاعل','الإملاء: الهمزة','البلاغة: التشبيه'], kafa:'ينتج نصًا وصفيًا موظفًا التشبيه', h:'12 سا', w:5},
+        {t:'الحكاية والموروث', res:['النص السردي','المفعول به','علامات الترقيم'], kafa:'يسرد حكاية شعبية بلغة سليمة', h:'10 سا', w:4},
+        {t:'القيم والأخلاق', res:['النص الحواري','الأساليب النحوية','الإملاء: الألف اللينة'], kafa:'يناقش قيمة أخلاقية مستشهدًا', h:'11 سا', w:4}
+      ],
+      '2M':[
+        {t:'الطبيعة والبيئة', res:['النص التفسيري','النواسخ','الاستعارة'], kafa:'يفسر ظاهرة طبيعية كتابة', h:'11 سا', w:4},
+        {t:'العلم والأخلاق', res:['النص الحجاجي (مدخل)','الممنوع من الصرف','أسلوب الأمر'], kafa:'يبدي رأيًا مدعومًا بحجج', h:'10 سا', w:4},
+        {t:'التراث والفنون', res:['النص الإخباري','الجملة الاسمية والفعلية','الطباق'], kafa:'يصف عملًا فنيًا تراثيًا', h:'9 سا', w:3}
+      ],
+      '3M':[
+        {t:'القضايا الاجتماعية', res:['الحجاج','البدل والتوكيد','الكناية'], kafa:'يحرر فقرة حجاجية متماسكة', h:'12 سا', w:5},
+        {t:'الإعلام والتواصل', res:['الخبر الصحفي','الجمل الشرطية','الاستفهام'], kafa:'يحلل خبرًا ويعيد صياغته', h:'10 سا', w:4},
+        {t:'الوطن والانتماء', res:['النص الشعري','التمييز','الجناس'], kafa:'يحلل قصيدة ويعبر عن انتمائه', h:'10 سا', w:4}
+      ],
+      '4M':[
+        {t:'الإنسان والقيم', res:['النص الحجاجي المتقدم','التمييز والحال','الطباق والمقابلة'], kafa:'ينتج نصًا حجاجيًا يدافع عن قيمة إنسانية', h:'12 سا', w:4},
+        {t:'العلم والتقدم', res:['المقال العلمي','أسلوب الشرط','التقرير'], kafa:'يلخص مقالًا علميًا ويناقشه', h:'11 سا', w:4},
+        {t:'الوطن والمواطنة', res:['الشعر الوطني','الإعراب التام','الوضعية الإدماجية'], kafa:'يحلل قصيدة وطنية ويستثمرها في إنتاج كتابي', h:'13 سا', w:5},
+        {t:'تحضير شهادة التعليم المتوسط', res:['منهجية الإجابة','التدريب على الوضعيات','تصحيح نماذج'], kafa:'يجيب بمنهجية عن موضوع الشهادة', h:'10 سا', w:3}
+      ]
+    }
+  },
+  scnat: {
+    global:'يفسر المتعلم الظواهر البيولوجية والجيولوجية بالمنهج التجريبي ويتبنى سلوكًا صحيًا وبيئيًا مسؤولًا.',
+    competencies:['يلاحظ ويصف الظواهر ويتساءل','يجرب ويستنتج وفق المنهج التجريبي','يصنف الكائنات ويحلل علاقاتها','يتبنى سلوكًا صحيًا وبيئيًا مسؤولًا'],
+    units:{
+      '1M':[
+        {t:'الوسط الحي والتنوع', res:['مكونات الوسط','السلاسل الغذائية','التكيف'], kafa:'يصنف كائنات ويصف علاقاتها', h:'10 سا', w:4},
+        {t:'التغذية عند الإنسان', res:['الأغذية','الجهاز الهضمي','التوازن الغذائي'], kafa:'يقترح وجبة متوازنة مبررًا', h:'10 سا', w:4},
+        {t:'الصحة والنظافة', res:['الجراثيم','الوقاية','التلقيح'], kafa:'يتبنى سلوكًا وقائيًا صحيًا', h:'8 سا', w:3}
+      ],
+      '2M':[
+        {t:'التنفس والدوران', res:['الجهاز التنفسي','القلب والدورة الدموية','التبادل الغازي'], kafa:'يفسر آلية التنفس والدوران', h:'11 سا', w:5},
+        {t:'الإخراج والتوازن الداخلي', res:['الجهاز البولي','تنظيم الماء','الحرارة'], kafa:'يفسر دور الكلية في التوازن', h:'9 سا', w:3}
+      ],
+      '3M':[
+        {t:'الوراثة والتكاثر', res:['التكاثر عند النبات','التكاثر عند الحيوان','الصبغيات'], kafa:'يفسر انتقال الصفات الوراثية', h:'11 سا', w:5},
+        {t:'الجيولوجيا: الصخور والتربة', res:['أنواع الصخور','تشكل التربة','استغلال الثروات'], kafa:'يصنف صخورًا ويشرح تشكلها', h:'9 سا', w:3}
+      ],
+      '4M':[
+        {t:'التغذية والطاقة', res:['الأنزيمات','التنفس الخلوي','التركيب الضوئي'], kafa:'يفسر التحولات الطاقوية في الخلية', h:'12 سا', w:4},
+        {t:'المناعة والاتصال العصبي', res:['الاستجابة المناعية','اللقاحات','المنعكسات'], kafa:'يتبنى سلوكًا وقائيًا مبررًا علميًا', h:'13 سا', w:5},
+        {t:'الجيولوجيا: الزلازل والبراكين', res:['الصفائح','الوقاية من الأخطار','الطاقة الجوفية'], kafa:'يقترح إجراءات وقائية من الزلازل', h:'10 سا', w:4}
+      ]
+    }
+  },
+  phys: {
+    global:'يفسر المتعلم الظواهر الفيزيائية والتكنولوجية بالمنهج التجريبي ويوظف النمذجة لحلّ وضعيات من الحياة اليومية.',
+    competencies:['يقيس ويقدر بدقة موظفًا أدوات القياس','يفسر الظواهر الكهربائية والميكانيكية','ينمذج وضعيات بتمثيلات بيانية','يتبنى سلوكًا آمنًا في التجارب'],
+    units:{
+      '1M':[
+        {t:'الظواهر الكهربائية', res:['الدارة الكهربائية','التوصيل على التسلسل','التوصيل على التفرع'], kafa:'ينجز دارة كهربائية ويشرح عملها', h:'10 سا', w:4},
+        {t:'المادة وتحولاتها', res:['الحالات الثلاث للمادة','التحولات الفيزيائية','الكتلة والحجم'], kafa:'يفسر تحولات المادة في وضعيات', h:'10 سا', w:4}
+      ],
+      '2M':[
+        {t:'الضوء والظلال', res:['انتشار الضوء','الانعكاس','الانكسار'], kafa:'يفسر تشكل الظلال والخيالات', h:'11 سا', w:4},
+        {t:'الطاقة', res:['أشكال الطاقة','تحولات الطاقة','الطاقة الكهربائية'], kafa:'يتتبع تحولات الطاقة في جهاز', h:'10 سا', w:4}
+      ],
+      '3M':[
+        {t:'الحركة والقوى', res:['السرعة','الحركة المنتظمة','القوى وتأثيرها'], kafa:'يقيس سرعة ويحدد خصائص قوة', h:'11 سا', w:5},
+        {t:'الكهرباء: التوتر وشدة التيار', res:['التوتر الكهربائي','شدة التيار','القياس والاستعمال الآمن'], kafa:'يقيس التوتر وشدة التيار بأمان', h:'10 سا', w:4}
+      ],
+      '4M':[
+        {t:'الحركة والقوى: النموذج', res:['المقاربة الفيزيائية للحركة','وزن الجسم','التوازن'], kafa:'ينمذج حركة ويحلل قوى مؤثرة', h:'12 سا', w:4},
+        {t:'الكهرباء والمغناطيسية', res:['المقاومة','التوتر والتيار المتناوب','المغناطيسية'], kafa:'يفسر الظواهر الكهربائية والمغناطيسية', h:'12 سا', w:5},
+        {t:'الظواهر الكونية والأمن', res:['الجاذبية','الطاقة النووية','الأمن الكهربائي'], kafa:'يفسر ظواهر كونية ويناقش رهاناتها', h:'9 سا', w:3}
+      ]
+    }
+  },
+  fr: {
+    global:'يتواصل المتعلم بالفرنسية شفهيًا وكتابيًا في وضعيات دالة، يفهم نصوصًا متنوعة وينتج نصوصًا سردية ووصفية وحجاجية.',
+    competencies:['يفهم خطابًا شفهيًا ويستجيب له','يقرأ نصوصًا متنوعة ويحللها','ينتج نصوصًا كتابية متماسكة','يوظف القواعد والتصريف والصرف'],
+    units:{
+      '1M':[
+        {t:'Se présenter / التعريف بالنفس', res:['Les verbes au présent','Le présentatif','Le vocabulaire de la famille'], kafa:'يقدم نفسه ويصف محيطه', h:'10 سا', w:4},
+        {t:'La description / الوصف', res:['Les adjectifs qualificatifs','Le présent de l’indicatif','L’accord'], kafa:'ينتج نصًا وصفيًا قصيرًا', h:'11 سا', w:4}
+      ],
+      '2M':[
+        {t:'Le récit / السرد', res:['Le passé composé','Les connecteurs','L’imparfait'], kafa:'يسرد حدثًا بترتيب منطقي', h:'11 سا', w:4},
+        {t:'La vie quotidienne', res:['Les articles','Le futur simple','Le dialogue'], kafa:'ينجز حوارًا في وضعية يومية', h:'10 سا', w:4}
+      ],
+      '3M':[
+        {t:'Le reportage / التقرير', res:['La voix passive','Le discours direct','Les expressions du temps'], kafa:'يحرر تقريرًا مبسطًا', h:'11 سا', w:4},
+        {t:'L’argumentation / الحجاج', res:['Les connecteurs logiques','La comparaison','Le subjonctif'], kafa:'يعبر عن رأيه بحجج', h:'10 سا', w:4}
+      ],
+      '4M':[
+        {t:'Texte argumentatif', res:['Thèse et arguments','Les figures de style','La concession'], kafa:'ينتج نصًا حجاجيًا متماسكًا', h:'12 سا', w:4},
+        {t:'La science et le progrès', res:['Le vocabulaire scientifique','Le conditionnel','La nominalisation'], kafa:'يلخص نصًا علميًا ويناقشه', h:'11 سا', w:4},
+        {t:'Le patrimoine national', res:['Le poème','Les temps du récit','L’expression écrite'], kafa:'يعبر عن الانتماء الوطني كتابة', h:'10 سا', w:4}
+      ]
+    }
+  },
+  en: {
+    global:'يتواصل المتعلم بالإنجليزية في وضعيات بسيطة، يفهم نصوصًا قصيرة وينتج جملًا ونصوصًا وظيفية.',
+    competencies:['يستعمل مفردات أساسية في سياق','يفهم نصًا قصيرًا ويجيب','يكتب جملًا ونصوصًا قصيرة','يتفاعل شفهيًا في مواقف بسيطة'],
+    units:{
+      '1M':[
+        {t:'Hello and greetings', res:['To be / Have got','Numbers','Classroom objects'], kafa:'يحيي ويعرف بنفسه', h:'9 سا', w:3},
+        {t:'My family and home', res:['Possessive adjectives','Present simple','Rooms'], kafa:'يصف عائلته وبيته', h:'10 سا', w:4}
+      ],
+      '2M':[
+        {t:'School life', res:['Present continuous','Prepositions','Daily routine'], kafa:'يتحدث عن يومه الدراسي', h:'10 سا', w:4},
+        {t:'My country Algeria', res:['There is / There are','Adjectives','Places'], kafa:'يقدم معلومات عن بلده', h:'9 سا', w:3}
+      ],
+      '3M':[
+        {t:'Health and environment', res:['Past simple','Modals','Vocabulary'], kafa:'يناقش موضوع الصحة والبيئة', h:'10 سا', w:4},
+        {t:'Travel and culture', res:['Future','Comparatives','Directions'], kafa:'يحكي عن رحلة', h:'9 سا', w:3}
+      ],
+      '4M':[
+        {t:'Technology and progress', res:['Passive voice','Present perfect','Linkers'], kafa:'يكتب فقرة عن التكنولوجيا', h:'10 سا', w:4},
+        {t:'National identity', res:['Relative clauses','Reported speech','Writing'], kafa:'يكتب نصًا عن الهوية الوطنية', h:'10 سا', w:4},
+        {t:'Exam preparation', res:['Reading comprehension','Writing tasks','Revision'], kafa:'يستعد لامتحان الشهادة', h:'9 سا', w:3}
+      ]
+    }
+  },
+  hist: {
+    global:'يفسر المتعلم الأحداث التاريخية والظواهر الجغرافية بالوثائق والخرائط، ويعزز وعيه بالهوية الوطنية والمواطنه.',
+    competencies:['يقرأ الوثائق والخرائط ويحللها','يتسلسل الأحداث ويربطها بأسبابها','يقارن ظواهر جغرافية','يعبر عن وعيه الوطني'],
+    units:{
+      '1M':[
+        {t:'الجزائر: الموقع والسكان', res:['الموقع الجغرافي','التضاريس والمناخ','توزيع السكان'], kafa:'يقرأ خريطة الجزائر ويفسر التوزيع', h:'10 سا', w:4},
+        {t:'الحضارات القديمة', res:['حضارة بلاد الرافدين','مصر الفرعونية','الممالك الأمازيغية'], kafa:'يقارن بين حضارتين قديمتين', h:'10 سا', w:4}
+      ],
+      '2M':[
+        {t:'الفتح الإسلامي والمغرب الأوسط', res:['الفتوحات','الدول الإسلامية','الرستميين'], kafa:'يفسر انتشار الإسلام في المغرب', h:'10 سا', w:4},
+        {t:'المناخ والأقاليم', res:['العوامل المناخية','الأقاليم المناخية','الغطاء النباتي'], kafa:'يربط المناخ بالأقاليم', h:'9 سا', w:3}
+      ],
+      '3M':[
+        {t:'الدولة العثمانية والجزائر', res:['الإيالة','العمرانية','العلاقات الخارجية'], kafa:'يصف التنظيم السياسي للإيالة', h:'10 سا', w:4},
+        {t:'الثورة الصناعية', res:['أسبابها','المظاهر','الآثار'], kafa:'يحلل آثار الثورة الصناعية', h:'9 سا', w:3}
+      ],
+      '4M':[
+        {t:'الاستعمار والمقاومة', res:['الاحتلال الفرنسي','المقاومات الشعبية','الحركة الوطنية'], kafa:'يفسر مراحل المقاومة الوطنية', h:'11 سا', w:4},
+        {t:'الثورة التحريرية', res:['اندلاع الثورة','المواثيق','الاستقلال'], kafa:'يحلل مسار الثورة التحريرية', h:'12 سا', w:5},
+        {t:'العالم المعاصر', res:['الحرب الباردة','التكتلات','الرهانات'], kafa:'يفسر تحولات العالم المعاصر', h:'9 سا', w:3}
+      ]
+    }
+  },
+  isl: {
+    global:'يتربى المتعلم على القيم الإسلامية ويعي مقاصد الشريعة ويطبق سلوكياتها في حياته اليومية.',
+    competencies:['يقرأ ويحفظ ويتمعن النصوص الشرعية','يستنبط الأحكام والقيم','يقتدي بالرسول ﷺ','يمارس قيم التعايش والتضامن'],
+    units:{
+      '1M':[
+        {t:'العقيدة: الإيمان بالله', res:['أسماء الله','التوحيد','آثار الإيمان'], kafa:'يشرح معنى التوحيد وأثره', h:'8 سا', w:3},
+        {t:'السيرة النبوية', res:['المولد','البعثة','الهجرة'], kafa:'يستخلص دروسًا من السيرة', h:'9 سا', w:3}
+      ],
+      '2M':[
+        {t:'العبادات: الصلاة والصوم', res:['أحكام الصلاة','أحكام الصوم','الحكمة'], kafa:'يؤدي العبادة وفق أحكامها', h:'9 سا', w:3},
+        {t:'الأخلاق الإسلامية', res:['الصدق','الأمانة','الرحمة'], kafa:'يتبنى سلوكًا أخلاقيًا', h:'8 سا', w:3}
+      ],
+      '3M':[
+        {t:'القيم الاجتماعية', res:['التكافل','التعاون','بر الوالدين'], kafa:'يمارس قيم التضامن الاجتماعي', h:'9 سا', w:3},
+        {t:'القرآن والتفسير', res:['القراءة','المعاني','التدبر'], kafa:'يفسر آية ويستنبط أحكامها', h:'8 سا', w:3}
+      ],
+      '4M':[
+        {t:'مقاصد الشريعة', res:['الحفاظ على الدين','الحفاظ على النفس','الحفاظ على المال'], kafa:'يفسر مقاصد الشريعة في وضعيات', h:'9 سا', w:3},
+        {t:'الفقه والمعاملات', res:['البيع','الربا','الوسطية'], kafa:'يحكم على معاملة فقهيًا', h:'8 سا', w:3},
+        {t:'الحضارة والقيم العالمية', res:['التسامح','الحوار','التعايش'], kafa:'يتبنى قيم الحوار والتسامح', h:'8 سا', w:3}
+      ]
+    }
+  },
+  civ: {
+    global:'يدرك المتعلم حقوقه وواجباته ويمارس المواطنة الفاعلة داخل المؤسسة والمجتمع.',
+    competencies:['يعرف مؤسسات الدولة ووظائفها','يمارس حقوقه وواجباته','يحترم القانون والحياة الجماعية','يشارك في الحياة المدرسية'],
+    units:{
+      '1M':[{t:'الهوية والانتماء', res:['الهوية الوطنية','الرموز الوطنية','المواطنة'], kafa:'يعبر عن انتمائه الوطني', h:'6 سا', w:2}],
+      '2M':[{t:'الحياة الجماعية', res:['القواعد','التضامن','الحوار'], kafa:'يتعاون في الحياة الجماعية', h:'6 سا', w:2}],
+      '3M':[{t:'الحقوق والواجبات', res:['حقوق الطفل','الواجبات','المؤسسات'], kafa:'يوازن بين الحق والواجب', h:'6 سا', w:2}],
+      '4M':[{t:'الدولة والمؤسسات', res:['الدستور','السلطات','الانتخابات'], kafa:'يفسر دور المؤسسات الدستورية', h:'7 سا', w:2}]
+    }
+  },
+  inf: {
+    global:'يوظف المتعلم أدوات الإعلام الآلي والتكنولوجيا الرقمية بأمان ومسؤولية لحلّ مشكلات بسيطة.',
+    competencies:['يشغل الحاسوب ونظام التشغيل','ينتج وثائق ومعالجة جدول','يبحث في الأنترنت بأمان','يبرمج حلولًا بسيطة'],
+    units:{
+      '1M':[{t:'اكتشاف الحاسوب', res:['مكونات الجهاز','نظام التشغيل','الملفات والمجلدات'], kafa:'يشغل الحاسوب وينظم ملفاته', h:'5 سا', w:2}],
+      '2M':[{t:'معالجة النصوص', res:['كتابة وتنسيق','الجداول','الطباعة'], kafa:'ينتج وثيقة مهيكلة', h:'5 سا', w:2}],
+      '3M':[{t:'الأنترنت والأمن الرقمي', res:['البحث','البريد الإلكتروني','الحماية'], kafa:'يبحث بأمان على الأنترنت', h:'5 سا', w:2}],
+      '4M':[{t:'الإعلام الآلي والحساب', res:['الجداول الممتدة','الصيغ','المخططات'], kafa:'ينجز جدولًا حسابيًا', h:'6 سا', w:2}]
+    }
+  },
+  sport: {
+    global:'يطور المتعلم قدراته البدنية والحركية ويمارس الأنشطة الرياضية بروح رياضية وتضامن.',
+    competencies:['يؤدي حركات أساسية بدقة','يتحكم في جسمه وتنفسه','يتعاون داخل الفريق','يحترم القواعد والخصم'],
+    units:{
+      '1M':[{t:'الأنشطة الفردية', res:['الجري السريع','التوافق الحركي','التمدد'], kafa:'ينجز حركات أساسية بدقة', h:'8 سا', w:2}],
+      '2M':[{t:'الألعاب الجماعية', res:['كرة القدم','كرة السلة','الأساسيات'], kafa:'يتعاون داخل الفريق', h:'8 سا', w:2}],
+      '3M':[{t:'الجمنازيوم والتحمل', res:['القفز','التوازن','التحمل'], kafa:'يتحكم في حركاته البدنية', h:'8 سا', w:2}],
+      '4M':[{t:'الأنشطة التنافسية', res:['تكتيك','تحكيم','روح رياضية'], kafa:'يشارك بروح رياضية', h:'8 سا', w:2}]
+    }
+  },
+  art: {
+    global:'يعبر المتعلم عن أفكاره ومشاعره عبر أشكال فنية متنوعة ويقدّر الموروث الفني الجزائري.',
+    competencies:['يلاحظ ويصف عملًا فنيًا','يوظف الألوان والأشكال','يعبر عن انفعالاته فنيًا','يقدّر الموروث الفني'],
+    units:{
+      '1M':[{t:'الألوان والأشكال', res:['الألوان الأساسية','الخط','التلوين'], kafa:'يوظف الألوان في عمل فني', h:'5 سا', w:2}],
+      '2M':[{t:'الزخرفة الإسلامية', res:['الأشكال الهندسية','التكرار','التناظر'], kafa:'ينجز زخرفة بسيطة', h:'5 سا', w:2}],
+      '3M':[{t:'الفنون البصرية', res:['الرسم','الكولاج','التعبير'], kafa:'يعبر فنيًا عن موضوع', h:'5 سا', w:2}],
+      '4M':[{t:'التراث والفن الجزائري', res:['الخزف','النقش','الملابس'], kafa:'يقدّر الموروث الفني الجزائري', h:'5 سا', w:2}]
+    }
+  }
+};
+
+const WILAYAS = ['الجزائر','وهران','قسنطينة','عنابة','سطيف','باتنة','تلمسان','بجاية','ورقلة','غرداية','البويرة','تيزي وزو','مستغانم','بسكرة','الجلفة','البليدة','سيدي بلعباس','بشار','أدرار','الشلف','الوادي','المسيلة','قالمة','جيجل'];
+
+const INSP = [
+  {cat:'الدفاتر الإجبارية', icon:'fa-book', items:[
+    'دفتر التحضير اليومي مرقّم ومختوم ومنظم',
+    'دفتر النصوص مطابق للتدرج السنوي',
+    'دفتر التنقيط محدّث مع جميع الأقسام',
+    'دفتر التكوين (الندوات والزيارات)',
+    'سجل تحليل نتائج الفروض والاختبارات'
+  ]},
+  {cat:'الوثائق البيداغوجية', icon:'fa-folder-open', items:[
+    'المنهاج الرسمي + الوثيقة المرافقة',
+    'المخطط السنوي مصادق عليه من المفتش',
+    'التوزيع الشهري للدروس',
+    'بطاقات المقاطع التعليمية',
+    'بنك المذكرات لكل المقاطع',
+    'شبكات التقويم والتقويم الذاتي'
+  ]},
+  {cat:'الأداء المهني في القسم', icon:'fa-person-chalkboard', items:[
+    'وضعية الانطلاق واضحة في كل درس',
+    'تنويع الأنشطة (فردي / ثنائي / جماعي)',
+    'استعمال السبورة والوسائل بشكل وظيفي',
+    'إدماج المعالجة البيداغوجية',
+    'التقويم المستمر وتغذية راجعة للمتعلمين'
+  ]},
+  {cat:'الأخلاقيات والمهنة', icon:'fa-shield-heart', items:[
+    'الالتزام باللباس المهني والمواعيد',
+    'احترام ميثاق أخلاقيات المهنة',
+    'المشاركة في العمل الجماعي للمادة',
+    'التواصل مع الأولياء عند الحاجة'
+  ]}
+];
+
+const QUIZ = [
+  ['كيف تخطط للمقطع التعليمي؟','اذكر: الكفاءة المستهدفة، الموارد، الوضعية الانطلاق، التقويم.'],
+  ['كيف تعالج الفروق الفردية؟','أنشطة دعم ومعالجة + مجموعات عمل + فروض تفاضلية.'],
+  ['ما هو دور الوضعية الانطلاق؟','تثير الفضول وتربط الدرس بالواقع وتربط بالمكتسبات.'],
+  ['كيف تقوّم الكفاءة؟','بوضعية إدماجية + شبكة معايير ومؤشرات دقيقة.'],
+  ['ماذا يفعل دفتر النصوص؟','يؤرخ لتقدمك مقارنة بالمخطط السنوي.'],
+  ['كيف تستعمل الوثيقة المرافقة؟','لتحديد الموارد والحجم الساعي لكل مقطع.'],
+  ['كيف تدمج التقويم المستمر؟','أسئلة فورية، تصحيح جماعي، تغذية راجعة.'],
+  ['كيف تنظم المعالجة البيداغوجية؟','بناءً على نتائج الفروض: أخطاء متكررة → حصة معالجة.']
+];
+
+const FAQ = [
+  ['هل المنصة مجانية تمامًا؟','نعم، التسجيل واستعمال الموارد البيداغوجية مجاني بالكامل لكل أساتذة وإدارة الطور المتوسط.'],
+  ['هل يمكنني التسجيل بفيسبوك؟','نعم، يمكن التسجيل أو الدخول بضغطة واحدة عبر فيسبوك بالإضافة إلى البريد الإلكتروني.'],
+  ['هل الملفات قابلة للتعديل؟','نعم، المذكرات والوثائق تُحمّل بصيغة Word / CSV قابلة للتعديل والطباعة.'],
+  ['هل الموارد مطابقة للمنهاج الرسمي؟','كل المحتوى مبني على منهاج الجيل الثاني ووثائق وزارة التربية الوطنية الجزائرية للموسم 2025/2026.'],
+  ['ما الفرق بين حساب الأستاذ وحساب الإدارة؟','حساب الأستاذ لإدارة مواده ودروسه، وحساب الإدارة لتسيير الأساتذة والأقسام والتقارير.'],
+  ['هل يمكن الدخول كمدير مؤسسة؟','نعم، عند التسجيل اختر «حساب إدارة» وحدّد صفتك (مدير، مستشار تربية، مشرف...).']
+];
+
+const TEACHERS_SEED = [
+  {n:'أمينة بلقاسم', s:'الرياضيات', l:'4 متوسط', m:'البريد', st:'مصادق'},
+  {n:'يوسف حمادي', s:'اللغة العربية', l:'3 متوسط', m:'فيسبوك', st:'مصادق'},
+  {n:'سارة بن علي', s:'علوم طبيعية', l:'2 متوسط', m:'البريد', st:'بانتظار'},
+  {n:'كريم مزياني', s:'فيزياء', l:'1 متوسط', m:'فيسبوك', st:'مصادق'},
+  {n:'نادية شريف', s:'فرنسية', l:'4 متوسط', m:'البريد', st:'بانتظار'},
+  {n:'رضا عيساوي', s:'تاريخ وجغرافيا', l:'3 متوسط', m:'فيسبوك', st:'بانتظار'},
+  {n:'حورية زيتوني', s:'إنجليزية', l:'2 متوسط', m:'البريد', st:'مصادق'},
+  {n:'مراد قاسمي', s:'تربية إسلامية', l:'1 متوسط', m:'البريد', st:'مصادق'}
+];
+
+const EXAMS = [
+  {p:'الفرض الأول — الفصل الأول', d:'2025-11-05', t:'فرض', st:'مبرمج'},
+  {p:'الفرض الثاني — الفصل الأول', d:'2025-11-26', t:'فرض', st:'مبرمج'},
+  {p:'اختبار الفصل الأول', d:'2025-12-08', t:'اختبار', st:'مبرمج'},
+  {p:'الفرض الأول — الفصل الثاني', d:'2026-02-18', t:'فرض', st:'قيد التحضير'},
+  {p:'الفرض الثاني — الفصل الثاني', d:'2026-03-11', t:'فرض', st:'قيد التحضير'},
+  {p:'اختبار الفصل الثاني', d:'2026-03-22', t:'اختبار', st:'قيد التحضير'}
+];
+
+const CLASSES = [
+  {n:'1م1', t:34, m:'الرياضيات'},{n:'1م2', t:32, m:'الرياضيات'},
+  {n:'2م1', t:31, m:'العلوم'},{n:'2م2', t:33, m:'العلوم'},
+  {n:'3م1', t:35, m:'فرنسية'},{n:'3م2', t:30, m:'فرنسية'},
+  {n:'4م1', t:36, m:'عربية'},{n:'4م2', t:34, m:'عربية'},
+  {n:'4م3', t:33, m:'فيزياء'},{n:'4م4', t:31, m:'فيزياء'},
+  {n:'2م3', t:29, m:'تاريخ'},{n:'1م3', t:30, m:'إسلامية'}
+];
+
+/* =========================================================
+   الحالة العامة
+========================================================= */
+let T = { role:'teacher', subject:'math', level:'4M', name:'أستاذ(ة) جديد(ة)', user:null };
+let inspState = JSON.parse(localStorage.getItem('manara_insp') || '{}');
+let CURRENT_RES = { title:'', content:'' };
+let ANN = [
+  {t:'استدعاء لاجتماع مجلس الأساتذة', b:'يُعقد الاجتماع يوم الخميس على الساعة 15:00 بقاعة المحاضرات لدراسة نتائج الفصل الأول.', to:'جميع الأساتذة', d:'منذ يومين'},
+  {t:'موحّد الفروض — الفصل الأول', b:'تُودع المواضيع الموحدة على مستوى المؤسسة يوم الأحد القادم.', to:'أساتذة السنة الرابعة', d:'منذ 5 أيام'}
+];
+
+/* =========================================================
+   أدوات مساعدة
+========================================================= */
+function toast(msg, type='ok'){
+  const box = document.getElementById('toasts');
+  const colors = {
+    ok:'bg-[#04261c] text-white',
+    info:'bg-blue-600 text-white',
+    warn:'bg-amber-500 text-[#2a1f00]',
+    err:'bg-red-500 text-white'
+  };
+  const icons = { ok:'fa-circle-check', info:'fa-circle-info', warn:'fa-triangle-exclamation', err:'fa-circle-xmark' };
+  const el = document.createElement('div');
+  el.className = 'toast-in rounded-2xl px-4 py-3 shadow-2xl font-black text-[13px] flex items-start gap-2 ' + (colors[type]||colors.ok);
+  el.innerHTML = `<i class="fa-solid ${icons[type]||icons.ok} mt-0.5"></i><div class="flex-1 leading-relaxed">${msg}</div>`;
+  box.appendChild(el);
+  setTimeout(()=>{ el.style.transition='all .4s ease'; el.style.opacity='0'; el.style.transform='translateY(14px)'; setTimeout(()=>el.remove(),420); }, 3600);
+}
+
+function downloadFile(filename, content, mime='text/plain'){
+  const blob = new Blob(['\ufeff' + content], {type: mime + ';charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  setTimeout(()=>{ URL.revokeObjectURL(url); a.remove(); }, 600);
+  toast('تم تحميل الملف: ' + filename, 'ok');
+}
+
+function printHTML(html){
+  const f = document.createElement('iframe');
+  f.style.position='fixed'; f.style.right='-10000px'; f.style.width='0'; f.style.height='0';
+  document.body.appendChild(f);
+  const doc = f.contentWindow.document;
+  doc.open();
+  doc.write('<html dir="rtl" lang="ar"><head><meta charset="utf-8"><title>طباعة</title>' +
+    '<style>body{font-family:Cairo,Arial,sans-serif;padding:32px;line-height:1.9;color:#0F1E2E}' +
+    'h1,h2{color:#0B6B4A}table{width:100%;border-collapse:collapse;margin-top:12px}' +
+    'th,td{border:1px solid #cbd5e1;padding:8px;text-align:right;font-size:13px}' +
+    'th{background:#0B6B4A;color:#fff}ul{padding-right:20px}li{margin:6px 0}</style></head><body>' + html + '</body></html>');
+  doc.close();
+  setTimeout(()=>{ try{ f.contentWindow.focus(); f.contentWindow.print(); }catch(e){} setTimeout(()=>f.remove(), 1600); }, 350);
+}
+
+function esc(s){ return String(s).replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+
+/* =========================================================
+   التنقل بين الفضاءات
+========================================================= */
+function showView(v){
+  ['home','teacher','admin'].forEach(x=>{
+    const el = document.getElementById('view-' + x);
+    if(el) el.classList.toggle('hidden', x !== v);
+  });
+  const tb = document.getElementById('topBar');
+  const nb = document.getElementById('navbar');
+  if(tb) tb.classList.toggle('hidden', v !== 'home');
+  if(nb) nb.classList.toggle('hidden', v !== 'home');
+  window.scrollTo({top:0, behavior:'auto'});
+  if(v === 'admin') initAdminCharts();
+  if(v === 'teacher') { renderOverview(); }
+  document.getElementById('mobileMenu')?.classList.add('hidden');
+}
+
+function scrollToId(id){
+  const el = document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  document.getElementById('mobileMenu')?.classList.add('hidden');
+}
+
+function enterDemo(role, tab){
+  T.role = role;
+  if(role === 'admin'){
+    T.name = 'السيد مدير المؤسسة';
+    showView('admin');
+    if(tab) switchATab(tab);
+    toast('مرحبًا! تم الدخول إلى فضاء الإدارة', 'ok');
+  } else {
+    if(!T.user) T.name = 'أستاذ(ة) تجريبي(ة)';
+    showView('teacher');
+    if(tab) switchTTab(tab);
+    toast('مرحبًا! تم الدخول إلى الفضاء التعليمي', 'ok');
+  }
+}
+
+function logout(){
+  showView('home');
+  toast('تم تسجيل الخروج بنجاح', 'info');
+}
+
+/* =========================================================
+   Preloader / Reveal / Counters
+========================================================= */
+window.addEventListener('load', ()=>{
+  let p = 0;
+  const bar = document.getElementById('loadBar');
+  const t = setInterval(()=>{
+    p += Math.random()*22 + 8;
+    if(p >= 100){ p = 100; clearInterval(t); }
+    bar.style.width = p + '%';
+    if(p === 100){
+      setTimeout(()=>{
+        const pre = document.getElementById('preloader');
+        pre.style.opacity = '0'; pre.style.visibility = 'hidden';
+      }, 320);
+    }
+  }, 200);
+});
+
+function initReveal(){
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){
+        const d = parseInt(en.target.dataset.delay || 0);
+        setTimeout(()=>en.target.classList.add('active'), d);
+        obs.unobserve(en.target);
+      }
+    });
+  }, {threshold:.12});
+  document.querySelectorAll('#view-home .reveal').forEach(el=>{
+    if(el.classList.contains('active')) return;
+    obs.observe(el);
+  });
+}
+
+function initCounters(){
+  document.querySelectorAll('.counter').forEach(el=>{
+    const target = parseInt(el.dataset.target);
+    let cur = 0;
+    const step = Math.max(1, Math.floor(target / 60));
+    const t = setInterval(()=>{
+      cur += step;
+      if(cur >= target){ cur = target; clearInterval(t); }
+      el.textContent = cur.toLocaleString('en-US');
+    }, 22);
+  });
+}
+
+/* =========================================================
+   الصفحة الرئيسية
+========================================================= */
+function initHome(){
+  const marq = document.getElementById('wilayaMarquee');
+  marq.innerHTML = [...WILAYAS, ...WILAYAS].map(w=>`<span class="inline-flex items-center gap-1.5 mx-3"><i class="fa-solid fa-location-dot text-gold-400"></i> ${w}</span>`).join('');
+
+  const subOpts = SUBJECTS.map(s=>`<option value="${s.id}">${s.name}</option>`).join('');
+  ['demoSubject','tSubSel'].forEach(id=>{ const el = document.getElementById(id); if(el) el.innerHTML = subOpts; });
+  const rSub = document.getElementById('rSubject'); if(rSub) rSub.innerHTML = subOpts;
+  const ntSub = document.getElementById('ntSub'); if(ntSub) ntSub.innerHTML = subOpts;
+  const rWil = document.getElementById('rWilaya'); if(rWil) rWil.innerHTML = WILAYAS.map(w=>`<option>${w}</option>`).join('');
+
+  document.getElementById('demoSubject').value = 'math';
+  document.getElementById('demoLevel').value = '4M';
+
+  document.querySelectorAll('#levelFilter .lvl-tab').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      document.querySelectorAll('#levelFilter .lvl-tab').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      renderSubjects(b.dataset.l);
+    });
+  });
+
+  renderSubjects('4M');
+  renderDemo();
+  renderMini();
+  renderFaq();
+  initReveal();
+  initCounters();
+}
+
+function renderSubjects(level){
+  const grid = document.getElementById('subjectsGrid');
+  grid.innerHTML = SUBJECTS.map(s=>{
+    const units = (CURR[s.id]?.units?.[level]) || [];
+    const hours = units.reduce((a,u)=>a + (parseInt(u.h)||0), 0);
+    return `
+    <div onclick="openSubjectCard('${s.id}','${level}')" class="card-hover cursor-pointer bg-white rounded-3xl p-5 border shadow-card reveal active">
+      <div class="flex items-center justify-between">
+        <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-xl" style="background:${s.bg};color:${s.color}">
+          <i class="fa-solid ${s.icon}"></i>
+        </div>
+        <span class="chip bg-slate-100 text-slate-500">${s.hours}</span>
+      </div>
+      <div class="font-black mt-3">${s.name}</div>
+      <div class="text-[12px] text-slate-500 font-bold mt-1">${units.length} مقاطع • ${hours} سا إجمالي</div>
+      <div class="mt-3 text-dzgreen-600 font-black text-[12px]">عرض الدليل <i class="fa-solid fa-arrow-left"></i></div>
+    </div>`;
+  }).join('');
+}
+
+function openSubjectCard(sub, lvl){
+  T.subject = sub; T.level = lvl;
+  document.getElementById('demoSubject').value = sub;
+  document.getElementById('demoLevel').value = lvl;
+  renderDemo();
+  enterDemo('teacher', 'maqati3');
+}
+
+function renderDemo(){
+  const s = document.getElementById('demoSubject').value;
+  const l = document.getElementById('demoLevel').value;
+  const c = CURR[s];
+  const units = (c?.units?.[l]) || [];
+  document.getElementById('compGlobal').textContent = c?.global || '';
+  const cont = document.getElementById('demoContent');
+  if(!units.length){
+    cont.innerHTML = '<div class="text-center py-8 text-slate-400 font-bold col-span-3">لا توجد مقاطع مسجّلة لهذا المستوى.</div>';
+    return;
+  }
+  cont.innerHTML = units.slice(0, 6).map((u,i)=>`
+    <div class="card-hover bg-white rounded-2xl border p-4">
+      <div class="flex items-center justify-between mb-2">
+        <span class="chip bg-dzgreen-50 text-dzgreen-700 border border-dzgreen-500/20">المقطع ${i+1}</span>
+        <span class="text-[11px] font-black text-slate-400">${u.h}</span>
+      </div>
+      <div class="font-black mb-1 text-[14px]">${u.t}</div>
+      <div class="text-[12px] font-bold text-slate-500 mb-2 leading-relaxed">${u.kafa}</div>
+      <div class="flex flex-wrap gap-1 mb-3">
+        ${u.res.slice(0,3).map(r=>`<span class="text-[10px] font-black bg-slate-100 rounded-full px-2 py-0.5 text-slate-600">${r}</span>`).join('')}
+      </div>
+      <button onclick="openResFor('${s}','${l}',${i})" class="w-full bg-emerald-50 text-dzgreen-700 font-black text-[11px] py-2 rounded-lg hover:bg-emerald-100 transition">فتح بطاقة المقطع</button>
+    </div>`).join('');
+}
+
+function renderFaq(){
+  document.getElementById('faqList').innerHTML = FAQ.map((f,i)=>`
+    <div class="accordion-item bg-white rounded-2xl border shadow-sm overflow-hidden reveal active">
+      <button onclick="toggleAcc(this)" class="w-full flex items-center gap-3 p-5 text-right font-black text-[15px]">
+        <span class="w-8 h-8 rounded-xl bg-dzgreen-50 text-dzgreen-600 flex items-center justify-center text-[13px] shrink-0">${i+1}</span>
+        <span class="flex-1">${f[0]}</span>
+        <i class="chev fa-solid fa-chevron-down text-slate-400"></i>
+      </button>
+      <div class="accordion-body"><div class="px-5 pb-5 pt-0 text-[13px] font-bold text-slate-500 leading-relaxed">${f[1]}</div></div>
+    </div>`).join('');
+}
+
+function toggleAcc(btn){
+  const item = btn.closest('.accordion-item');
+  const wasOpen = item.classList.contains('open');
+  item.parentElement.querySelectorAll('.accordion-item').forEach(x=>x.classList.remove('open'));
+  if(!wasOpen) item.classList.add('open');
+}
+
+function subscribeNews(){
+  const v = document.getElementById('nlInput').value.trim();
+  if(!v || !v.includes('@')) return toast('يرجى إدخال بريد إلكتروني صحيح', 'warn');
+  document.getElementById('nlInput').value = '';
+  toast('تم الاشتراك في النشرة البيداغوجية بنجاح', 'ok');
+}
+
+/* =========================================================
+   عداد الجاهزية المصغّر (الرئيسية)
+========================================================= */
+function renderMini(){
+  const items = INSP[0].items.slice(0,2).concat(INSP[1].items.slice(0,3));
+  document.getElementById('miniCheck').innerHTML = items.map((it,i)=>`
+    <label class="check-item flex items-start gap-2 cursor-pointer">
+      <input type="checkbox" class="hidden" onchange="syncMini()" data-mini="${i}">
+      <div class="flex-1 flex items-start gap-2 border rounded-xl p-3 transition">
+        <span class="boxed w-5 h-5 rounded-md border-2 border-slate-300 flex items-center justify-center text-[10px] shrink-0 mt-0.5">
+          <i class="fa-solid fa-check"></i>
+        </span>
+        <span class="lbl text-[13px] font-bold">${it}</span>
+      </div>
+    </label>`).join('');
+  syncMini();
+}
+
+function syncMini(){
+  const boxes = document.querySelectorAll('#miniCheck input[data-mini]');
+  let done = 0;
+  boxes.forEach(b=>{ if(b.checked) done++; });
+  const total = boxes.length || 1;
+  const pct = Math.round(done / total * 100);
+  const mp = document.getElementById('miniPct');
+  if(mp) mp.textContent = pct + '%';
+  const mb = document.getElementById('miniBar');
+  if(mb) mb.style.width = pct + '%';
+}
+
+/* =========================================================
+   الدليل التفاعلي / بطاقة مقطع
+========================================================= */
+function openResFor(sub, lvl, i){
+  const u = CURR[sub].units[lvl][i];
+  const sname = SUBJECTS.find(x=>x.id===sub)?.name || '';
+  const content =
+`المادة: ${sname} — المستوى: ${LEVELS[lvl].name}
+
+المقطع التعليمي رقم (${i+1}): ${u.t}
+الحجم الساعي: ${u.h} (${u.w} حصص)
+
+الكفاءة المستهدفة:
+${u.kafa}
+
+الموارد المعرفية:
+${u.res.map((r,k)=>(k+1)+'. '+r).join('\n')}
+
+المدة: ${u.h}
+
+وضعية الانطلاق (نموذج):
+تُطرح على المتعلمين وضعية من الحياة اليومية مرتبطة بالمقطع، تُثار من خلالها تساؤلات تُقاد إلى بناء الموارد المستهدفة.
+
+الأنشطة المقترحة:
+• نشاط بناء الموارد (عمل ثنائي ثم تصحيح جماعي).
+• نشاط إدماج جزئي في نهاية كل مورد.
+• وضعية إدماجية شاملة في نهاية المقطع.
+
+التقويم:
+• تقويم تشخيصي في البداية.
+• تقويم تكويني مستمر.
+• تقويم ختامي بوضعية إدماجية + شبكة معايير ومؤشرات.`;
+  openResource(u.t, sname + ' • ' + LEVELS[lvl].name, 'fa-file-lines', content);
+}
+
+function openResource(title, meta, icon, content){
+  document.getElementById('resTitle').textContent = title;
+  document.getElementById('resMeta').textContent = meta;
+  document.getElementById('resIcon').innerHTML = `<i class="fa-solid ${icon}"></i>`;
+  document.getElementById('resPreview').innerHTML = esc(content).replace(/\n/g, '<br>');
+  document.getElementById('resModal').classList.remove('hidden');
+  CURRENT_RES = { title, content };
+}
+function closeRes(){ document.getElementById('resModal').classList.add('hidden'); }
+
+function downloadCurrentResource(kind){
+  if(!CURRENT_RES.title) return;
+  const name = CURRENT_RES.title.replace(/[\\/:*?"<>|]/g,'') + (kind === 'txt' ? '.txt' : '.doc');
+  if(kind === 'txt'){
+    downloadFile(name, CURRENT_RES.content, 'text/plain');
+  } else {
+    const html = `<html dir="rtl"><head><meta charset="utf-8"></head><body style="font-family:Cairo,Arial;line-height:2">` +
+      `<h2 style="color:#0B6B4A">${esc(CURRENT_RES.title)}</h2>` +
+      `<div>${esc(CURRENT_RES.content).replace(/\n/g,'<br>')}</div>` +
+      `<p style="color:#666;font-size:12px">منارة المتوسط — منصة الأساتذة والإدارة • منهاج الجيل الثاني</p></body></html>`;
+    downloadFile(name, html, 'application/msword');
+  }
+}
+
+function printCurrentResource(){
+  if(!CURRENT_RES.title) return;
+  printHTML(`<h2>${esc(CURRENT_RES.title)}</h2><div>${esc(CURRENT_RES.content).replace(/\n/g,'<br>')}</div>`);
+}
+
+/* =========================================================
+   تحميلات الرئيسية
+========================================================= */
+function curSubName(){ return SUBJECTS.find(x=>x.id===T.subject)?.name || 'المادة'; }
+
+function buildYearPlan(){
+  const units = CURR[T.subject]?.units?.[T.level] || [];
+  let txt = `الجمهورية الجزائرية الديمقراطية الشعبية\nوزارة التربية الوطنية\n\nالمخطط السنوي — ${curSubName()} — ${LEVELS[T.level].name}\nالموسم الدراسي: 2025 / 2026\n\n`;
+  units.forEach((u,i)=>{
+    txt += `المقطع ${i+1}: ${u.t}\nالمدة: ${u.h}  (${u.w} حصص)\nالكفاءة: ${u.kafa}\nالموارد: ${u.res.join(' | ')}\n` + '─'.repeat(46) + '\n';
+  });
+  txt += `\nالكفاءة الشاملة:\n${CURR[T.subject]?.global || ''}\n`;
+  return txt;
+}
+
+function buildMonthlyPlan(){
+  const units = CURR[T.subject]?.units?.[T.level] || [];
+  let txt = `التوزيع الشهري — ${curSubName()} — ${LEVELS[T.level].name}\n\n`;
+  const months = ['سبتمبر','أكتوبر','نوفمبر','ديسمبر','جانفي','فيفري','مارس','أفريل','ماي'];
+  units.forEach((u,i)=> txt += `${months[i] || 'شهر إضافي'}: ${u.t} — ${u.h}\n`);
+  return txt;
+}
+
+function buildSectionCards(){
+  const units = CURR[T.subject]?.units?.[T.level] || [];
+  let txt = `بطاقات المقاطع — ${curSubName()} — ${LEVELS[T.level].name}\n\n`;
+  units.forEach((u,i)=>{
+    txt += `■ بطاقة المقطع ${i+1}: ${u.t}\nالحجم الساعي: ${u.h}\nالكفاءة: ${u.kafa}\nالموارد:\n`;
+    u.res.forEach((r,k)=> txt += `   ${k+1}. ${r}\n`);
+    txt += '\n';
+  });
+  return txt;
+}
+
+function buildAssessmentGrid(){
+  const units = CURR[T.subject]?.units?.[T.level] || [];
+  let txt = `شبكة التقويم — ${curSubName()} — ${LEVELS[T.level].name}\n\n`;
+  txt += 'المعيار | المؤشر | ممتاز | جيد | مقبول | غير كافٍ\n' + '─'.repeat(56) + '\n';
+  units.forEach(u=>{
+    txt += `${u.t} | إنجاز النشاط بدقة |  |  |  |\n`;
+    txt += `${u.t} | توظيف الموارد |  |  |  |\n`;
+    txt += `${u.t} | الإدماج في وضعية جديدة |  |  |  |\n`;
+  });
+  return txt;
+}
+
+function downloadCurriculum(){ downloadFile('المخطط_السنوي_' + T.subject + '.doc', wrapDoc(buildYearPlan()), 'application/msword'); }
+function downloadMonthlyPlan(){ downloadFile('التوزيع_الشهري_' + T.subject + '.doc', wrapDoc(buildMonthlyPlan()), 'application/msword'); }
+function downloadSectionCard(){ downloadFile('بطاقات_المقاطع_' + T.subject + '.doc', wrapDoc(buildSectionCards()), 'application/msword'); }
+function downloadAssessmentGrid(){ downloadFile('شبكة_التقويم_' + T.subject + '.doc', wrapDoc(buildAssessmentGrid()), 'application/msword'); }
+function downloadYearPlan(){ downloadCurriculum(); }
+function downloadFullPack(){
+  downloadCurriculum();
+  setTimeout(downloadMonthlyPlan, 500);
+  setTimeout(downloadSectionCard, 1000);
+  setTimeout(downloadAssessmentGrid, 1500);
+  toast('تم توليد الحزمة الكاملة (4 ملفات)', 'ok');
+}
+
+function wrapDoc(txt){
+  return `<html dir="rtl"><head><meta charset="utf-8"></head><body style="font-family:Cairo,Arial;line-height:2;white-space:pre-wrap">${esc(txt)}</body></html>`;
+}
+
+function downloadCurriculumCSV(){
+  const units = CURR[T.subject]?.units?.[T.level] || [];
+  let csv = 'المقطع,الحجم الساعي,عدد الحصص,الكفاءة المستهدفة,الموارد\n';
+  units.forEach(u=>{
+    csv += `"${u.t}","${u.h}","${u.w}","${u.kafa}","${u.res.join(' / ')}"\n`;
+  });
+  downloadFile('منهاج_' + T.subject + '.csv', csv, 'text/csv');
+}
+
+function printCurriculum(){
+  const units = CURR[T.subject]?.units?.[T.level] || [];
+  let html = `<h1>منهاج ${esc(curSubName())} — ${esc(LEVELS[T.level].name)}</h1>`;
+  html += `<p><b>الكفاءة الشاملة:</b> ${esc(CURR[T.subject]?.global || '')}</p>`;
+  html += `<table><tr><th>المقطع</th><th>الحجم الساعي</th><th>الكفاءة المستهدفة</th><th>الموارد</th></tr>`;
+  units.forEach(u=>{ html += `<tr><td>${esc(u.t)}</td><td>${esc(u.h)}</td><td>${esc(u.kafa)}</td><td>${esc(u.res.join(' • '))}</td></tr>`; });
+  html += `</table>`;
+  printHTML(html);
+}
+
+function downloadCompanionDoc(){
+  const units = CURR[T.subject]?.units?.[T.level] || [];
+  let txt = `الوثيقة المرافقة للمنهاج — ${curSubName()} — ${LEVELS[T.level].name}\n\n`;
+  txt += `الكفاءة الشاملة:\n${CURR[T.subject]?.global || ''}\n\nالكفاءات العرضية:\n`;
+  (CURR[T.subject]?.competencies || []).forEach((c,i)=> txt += `${i+1}. ${c}\n`);
+  txt += '\nالمقاطع والموارد:\n';
+  units.forEach((u,i)=>{
+    txt += `\nالمقطع ${i+1}: ${u.t} (${u.h})\n  الموارد:\n`;
+    u.res.forEach(r=> txt += `    - ${r}\n`);
+  });
+  downloadFile('الوثيقة_المرافقة_' + T.subject + '.doc', wrapDoc(txt), 'application/msword');
+}
+
+function downloadAllSections(){
+  downloadFile('بطاقات_كل_المقاطع_' + T.subject + '.doc', wrapDoc(buildSectionCards()), 'application/msword');
+}
+
+/* =========================================================
+   Auth Modal
+========================================================= */
+let authRole = 'teacher';
+let authTab = 'register';
+
+function openAuth(mode='login', role){
+  if(role) setRole(role);
+  switchAuthTab(mode);
+  document.getElementById('authModal').classList.remove('hidden');
+}
+function closeAuth(){ document.getElementById('authModal').classList.add('hidden'); }
+
+function setRole(role){
+  authRole = role;
+  const rt = document.getElementById('roleTeacher');
+  const ra = document.getElementById('roleAdmin');
+  if(role === 'teacher'){
+    rt.className = 'py-2.5 rounded-xl font-black text-sm bg-gold-500 text-[#04261c] transition';
+    ra.className = 'py-2.5 rounded-xl font-black text-sm text-white/80 transition';
+  } else {
+    ra.className = 'py-2.5 rounded-xl font-black text-sm bg-gold-500 text-[#04261c] transition';
+    rt.className = 'py-2.5 rounded-xl font-black text-sm text-white/80 transition';
+  }
+  const te = document.getElementById('teacherExtra');
+  const ae = document.getElementById('adminExtra');
+  if(role === 'teacher'){ te.classList.remove('hidden'); te.classList.add('grid'); ae.classList.add('hidden'); ae.classList.remove('grid'); }
+  else { ae.classList.remove('hidden'); ae.classList.add('grid'); te.classList.add('hidden'); te.classList.remove('grid'); }
+}
+
+function switchAuthTab(tab){
+  authTab = tab;
+  const tabReg = document.getElementById('tabReg');
+  const tabLog = document.getElementById('tabLog');
+  const regF = document.getElementById('regFields');
+  const logF = document.getElementById('logFields');
+  if(tab === 'register'){
+    tabReg.className = 'py-2.5 rounded-xl font-black text-sm bg-dzgreen-600 text-white';
+    tabLog.className = 'py-2.5 rounded-xl font-black text-sm bg-slate-100 text-slate-500';
+    regF.classList.remove('hidden'); logF.classList.add('hidden');
+    document.getElementById('authTitle').textContent = 'إنشاء حساب جديد';
+  } else {
+    tabLog.className = 'py-2.5 rounded-xl font-black text-sm bg-dzgreen-600 text-white';
+    tabReg.className = 'py-2.5 rounded-xl font-black text-sm bg-slate-100 text-slate-500';
+    logF.classList.remove('hidden'); regF.classList.add('hidden');
+    document.getElementById('authTitle').textContent = 'تسجيل الدخول';
+  }
+}
+
+function togglePass(id){
+  const el = document.getElementById(id);
+  el.type = el.type === 'password' ? 'text' : 'password';
+}
+
+function facebookLogin(){
+  document.getElementById('fbModal').classList.remove('hidden');
+  document.getElementById('fbLoad').classList.add('hidden');
+  document.getElementById('fbBtns').classList.remove('hidden');
+}
+function closeFb(){ document.getElementById('fbModal').classList.add('hidden'); }
+function confirmFb(){
+  document.getElementById('fbLoad').classList.remove('hidden');
+  document.getElementById('fbBtns').classList.add('hidden');
+  setTimeout(()=>{
+    closeFb();
+    closeAuth();
+    T.user = { name:'أستاذ(ة) فيسبوك', via:'facebook' };
+    T.name = 'أستاذ(ة) فيسبوك';
+    enterDemo(authRole === 'admin' ? 'admin' : 'teacher');
+  }, 1300);
+}
+
+function doRegister(){
+  const first = document.getElementById('rFirst').value.trim();
+  const last = document.getElementById('rLast').value.trim();
+  const email = document.getElementById('rEmail').value.trim();
+  const pass = document.getElementById('rPass').value;
+  const terms = document.getElementById('rTerms').checked;
+  if(!first) return toast('يرجى إدخال الاسم', 'warn');
+  if(!email.includes('@')) return toast('يرجى إدخال بريد إلكتروني صحيح', 'warn');
+  if(pass.length < 6) return toast('كلمة المرور يجب أن تكون 6 أحرف فأكثر', 'warn');
+  if(!terms) return toast('يجب الموافقة على ميثاق المنصة', 'warn');
+  if(authRole === 'teacher'){
+    T.subject = document.getElementById('rSubject').value;
+  }
+  T.name = (authRole === 'admin' ? 'السيد(ة) ' : 'الأستاذ(ة) ') + first + ' ' + last;
+  T.user = { name:T.name, email, via:'email' };
+  closeAuth();
+  toast('تم إنشاء الحساب بنجاح — مرحبًا بك!', 'ok');
+  enterDemo(authRole === 'admin' ? 'admin' : 'teacher');
+}
+
+function doLogin(){
+  const email = document.getElementById('lEmail').value.trim().toLowerCase();
+  const pass = document.getElementById('lPass').value;
+  if(!email || !pass) return toast('يرجى إدخال البريد وكلمة المرور', 'warn');
+  const isAdmin = email.includes('admin');
+  T.user = { email, via:'email' };
+  T.name = isAdmin ? 'السيد مدير المؤسسة' : 'الأستاذ(ة) ' + (email.split('@')[0] || 'أستاذ');
+  closeAuth();
+  toast('تم تسجيل الدخول بنجاح', 'ok');
+  enterDemo(isAdmin ? 'admin' : 'teacher');
+}
+
+function fillDemo(role){
+  if(role === 'teacher'){
+    document.getElementById('lEmail').value = 'prof@manara.dz';
+    document.getElementById('lPass').value = '123456';
+  } else {
+    document.getElementById('lEmail').value = 'admin@manara.dz';
+    document.getElementById('lPass').value = '123456';
+  }
+  toast('تمت تعبئة البيانات التجريبية', 'info');
+}
+
+/* =========================================================
+   Teacher Dashboard — التنقل
+========================================================= */
+function switchTTab(tab){
+  document.querySelectorAll('#view-teacher .ttab').forEach(el=>el.classList.add('hidden'));
+  const el = document.getElementById('ttab-' + tab);
+  if(el) el.classList.remove('hidden');
+  document.querySelectorAll('#teacherNav .side-link').forEach(b=>b.classList.toggle('active', b.dataset.tab === tab));
+  document.getElementById('tMobile')?.classList.add('hidden');
+  if(tab === 'overview') renderOverview();
+  if(tab === 'manhaj') renderManhaj();
+  if(tab === 'maqati3') renderMaqati3();
+  if(tab === 'kafa') renderKafa();
+  if(tab === 'library') renderLibrary();
+  if(tab === 'moufatch') renderInsp();
+  if(tab === 'exams') renderExams();
+  window.scrollTo({top:0, behavior:'auto'});
+}
+
+function changeTeacherSub(v){
+  T.subject = v;
+  const sel = document.getElementById('demoSubject'); if(sel) sel.value = v;
+  syncTeacherHeader();
+  switchTTab(document.querySelector('#teacherNav .side-link.active')?.dataset.tab || 'overview');
+}
+function changeTeacherLvl(v){
+  T.level = v;
+  const sel = document.getElementById('demoLevel'); if(sel) sel.value = v;
+  syncTeacherHeader();
+  switchTTab(document.querySelector('#teacherNav .side-link.active')?.dataset.tab || 'overview');
+}
+
+function syncTeacherHeader(){
+  const s = curSubName();
+  const lvl = LEVELS[T.level].short;
+  const meta = document.getElementById('tMeta'); if(meta) meta.textContent = s + ' • ' + lvl;
+  const sub = document.getElementById('tSubSel'); if(sub) sub.value = T.subject;
+  const lv = document.getElementById('tLvlSel'); if(lv) lv.value = T.level;
+  const av = document.getElementById('tAvatar');
+  if(av) av.textContent = (T.name || 'أ').trim().charAt(0);
+  const nm = document.getElementById('tName'); if(nm) nm.textContent = T.name || 'أستاذ(ة)';
+  const hn = document.getElementById('tHelloName'); if(hn) hn.textContent = T.name || 'أستاذ(ة)';
+}
+
+function teacherSearch(q){
+  q = (q || '').trim();
+  const active = document.querySelector('#teacherNav .side-link.active')?.dataset.tab || 'overview';
+  if(active === 'maqati3' || active === 'library'){
+    const units = CURR[T.subject]?.units?.[T.level] || [];
+    const found = units.filter(u => u.t.includes(q) || u.res.some(r=>r.includes(q)));
+    if(q) toast(found.length ? `وجدت ${found.length} نتيجة مطابقة لـ "${q}"` : 'لا نتائج مطابقة', 'info');
+  } else if(q){
+    toast('جرّب البحث داخل «المقاطع» أو «المكتبة»', 'info');
+  }
+}
+
+/* =========================================================
+   Teacher Dashboard — Renders
+========================================================= */
+function overallProg(){ return 42; }
+
+function renderOverview(){
+  syncTeacherHeader();
+  const units = CURR[T.subject]?.units?.[T.level] || [];
+  const hours = units.reduce((a,u)=>a + (parseInt(u.h)||0), 0);
+  document.getElementById('kpiMaq').textContent = units.length;
+  document.getElementById('kpiHours').textContent = hours + ' سا';
+  document.getElementById('ovSubName').textContent = curSubName() + ' — ' + LEVELS[T.level].short;
+
+  const prog = overallProg();
+  document.getElementById('progTxt').textContent = prog + '%';
+  document.getElementById('ringTxt').textContent = prog + '%';
+  const ring = document.getElementById('ringProg');
+  if(ring) ring.style.strokeDashoffset = String(264 - (264 * prog / 100));
+
+  document.getElementById('ovProgress').innerHTML = units.map((u,i)=>{
+    const p = Math.min(100, 20 + i * 16);
+    return `
+    <div>
+      <div class="flex items-center justify-between text-[12px] font-black mb-1">
+        <span>${u.t}</span>
+        <span class="text-dzgreen-600">${p}%</span>
+      </div>
+      <div class="h-2.5 bg-slate-100 rounded-full overflow-hidden">
+        <div class="h-full bar-fill rounded-full bg-gradient-to-l from-dzgreen-500 to-gold-500" style="width:${p}%"></div>
+      </div>
+    </div>`;
+  }).join('');
+
+  const days = [
+    ['الأحد','مقطع: ' + (units[0]?.t || '—')],
+    ['الاثنين','حصة معالجة بيداغوجية'],
+    ['الثلاثاء','فرض محروس + تصحيح'],
+    ['الأربعاء','وضعية إدماجية'],
+    ['الخميس','مراجعة ومتابعة فردية']
+  ];
+  document.getElementById('weekList').innerHTML = days.map((d,i)=>`
+    <div class="flex items-center gap-2 p-2.5 rounded-xl ${i===2?'bg-amber-50 border border-amber-200':'bg-slate-50'}">
+      <span class="w-2 h-2 rounded-full ${i===2?'bg-amber-500':'bg-dzgreen-500'}"></span>
+      <span class="w-16 text-slate-500">${d[0]}</span>
+      <span class="flex-1 text-slate-700">${d[1]}</span>
+    </div>`).join('');
+
+  renderSideProgress();
+}
+
+function renderSideProgress(){
+  const pct = inspPct();
+  const sp = document.getElementById('sidePct'); if(sp) sp.textContent = pct + '%';
+  const sb = document.getElementById('sideBar'); if(sb) sb.style.width = pct + '%';
+}
+
+function renderManhaj(){
+  syncTeacherHeader();
+  document.getElementById('manhajSub').textContent = curSubName();
+  const c = CURR[T.subject];
+  const units = c?.units?.[T.level] || [];
+  let html = `<div><b class="text-dzgreen-700">الكفاءة الشاملة:</b> ${esc(c?.global || '')}</div>`;
+  html += `<div><b class="text-dzgreen-700">الكفاءات العرضية:</b><ul class="list-disc pr-6 mt-1">`;
+  (c?.competencies || []).forEach(k=> html += `<li>${esc(k)}</li>`);
+  html += `</ul></div>`;
+  html += `<div class="mt-2"><b class="text-dzgreen-700">المقاطع التعليمية (${units.length}):</b></div>`;
+  html += `<table class="w-full border-collapse mt-2 text-[13px]">
+      <tr class="bg-dzgreen-600 text-white">
+        <th class="border p-2">المقطع</th><th class="border p-2">الحجم الساعي</th><th class="border p-2">الكفاءة المستهدفة</th>
+      </tr>`;
+  units.forEach(u=>{
+    html += `<tr><td class="border p-2">${esc(u.t)}</td><td class="border p-2 text-center">${esc(u.h)}</td><td class="border p-2">${esc(u.kafa)}</td></tr>`;
+  });
+  html += `</table>`;
+  document.getElementById('manhajBody').innerHTML = html;
+
+  document.getElementById('hoursBox').innerHTML = SUBJECTS.slice(0,7).map(s=>`
+    <div class="flex items-center justify-between p-2.5 rounded-xl ${s.id === T.subject ? 'bg-emerald-50 border border-emerald-200' : 'bg-slate-50'}">
+      <span class="${s.id === T.subject ? 'font-black text-dzgreen-700' : ''}">${s.name}</span>
+      <span class="text-slate-500">${s.hours}</span>
+    </div>`).join('');
+}
+
+function renderMaqati3(){
+  syncTeacherHeader();
+  const units = CURR[T.subject]?.units?.[T.level] || [];
+  document.getElementById('maqCount').textContent = units.length + ' مقاطع • ' + LEVELS[T.level].name;
+  document.getElementById('maqList').innerHTML = units.map((u,i)=>`
+    <div class="accordion-item bg-white rounded-3xl border shadow-sm overflow-hidden">
+      <button onclick="toggleAcc(this)" class="w-full flex items-center gap-3 p-5 text-right">
+        <span class="w-10 h-10 rounded-2xl bg-dzgreen-600 text-white flex items-center justify-center font-black shrink-0">${i+1}</span>
+        <span class="flex-1">
+          <span class="block font-black text-[15px]">${esc(u.t)}</span>
+          <span class="block text-[12px] text-slate-500 font-bold mt-0.5">${esc(u.kafa)}</span>
+        </span>
+        <span class="chip bg-amber-100 text-amber-700 shrink-0">${esc(u.h)}</span>
+        <i class="chev fa-solid fa-chevron-down text-slate-400"></i>
+      </button>
+      <div class="accordion-body">
+        <div class="px-5 pb-5">
+          <div class="text-[12px] font-black text-slate-400 mb-2">الموارد المعرفية:</div>
+          <div class="grid sm:grid-cols-2 gap-2">
+            ${u.res.map(r=>`<div class="bg-slate-50 border rounded-xl px-3 py-2 text-[13px] font-bold text-slate-600 flex items-center gap-2"><i class="fa-solid fa-circle-check text-dzgreen-500"></i> ${esc(r)}</div>`).join('')}
+          </div>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <button onclick="openResFor('${T.subject}','${T.level}',${i})" class="bg-dzgreen-600 text-white font-black text-[12px] px-4 py-2 rounded-xl">فتح بطاقة المقطع</button>
+            <button onclick="downloadSectionCard()" class="border-2 border-dzgreen-600 text-dzgreen-700 font-black text-[12px] px-4 py-2 rounded-xl"><i class="fa-solid fa-download ml-1"></i> تحميل المقطع</button>
+          </div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function renderKafa(){
+  syncTeacherHeader();
+  const c = CURR[T.subject];
+  document.getElementById('kafaGlobal').textContent = c?.global || '';
+  document.getElementById('kafaList').innerHTML = (c?.competencies || []).map((k,i)=>`
+    <div class="bg-white rounded-2xl border p-5 flex gap-3">
+      <div class="w-10 h-10 rounded-2xl bg-emerald-100 text-dzgreen-700 flex items-center justify-center font-black shrink-0">${i+1}</div>
+      <div class="font-bold text-[13px] text-slate-600 leading-relaxed">${esc(k)}</div>
+    </div>`).join('');
+}
+
+function libItems(){
+  const units = CURR[T.subject]?.units?.[T.level] || [];
+  const items = [];
+  units.forEach((u,i)=>{
+    items.push({type:'مذكرة', t:'مذكرة — ' + u.t, icon:'fa-file-lines', cls:'bg-blue-100 text-blue-700'});
+    items.push({type:'وضعية انطلاق', t:'وضعية انطلاق — ' + u.t, icon:'fa-lightbulb', cls:'bg-amber-100 text-amber-700'});
+  });
+  items.push({type:'فرض', t:'الفرض الأول — الفصل الأول', icon:'fa-pen-to-square', cls:'bg-emerald-100 text-emerald-700'});
+  items.push({type:'فرض', t:'الفرض الثاني — الفصل الأول', icon:'fa-pen-to-square', cls:'bg-emerald-100 text-emerald-700'});
+  items.push({type:'اختبار', t:'اختبار الفصل الأول + التصحيح', icon:'fa-clipboard-check', cls:'bg-red-100 text-red-700'});
+  items.push({type:'مخطط سنوي', t:'المخطط السنوي للمادة', icon:'fa-calendar', cls:'bg-slate-100 text-slate-700'});
+  items.push({type:'دليل', t:'دليل الأستاذ — الوثيقة المرافقة', icon:'fa-book', cls:'bg-purple-100 text-purple-700'});
+  return items;
+}
+
+function renderLibrary(){
+  syncTeacherHeader();
+  const filter = document.getElementById('libFilter')?.value || 'all';
+  const items = libItems().filter(x => filter === 'all' || x.type === filter);
+  document.getElementById('libGrid').innerHTML = items.map((it,i)=>`
+    <div class="card-hover bg-white rounded-2xl border p-4">
+      <div class="flex items-center justify-between mb-2">
+        <div class="w-10 h-10 rounded-xl ${it.cls} flex items-center justify-center"><i class="fa-solid ${it.icon}"></i></div>
+        <span class="chip bg-slate-100 text-slate-500">${it.type}</span>
+      </div>
+      <div class="font-black text-[13px] mb-1">${esc(it.t)}</div>
+      <div class="text-[11px] text-slate-400 font-bold mb-3">${curSubName()} • ${LEVELS[T.level].short} • Word / PDF</div>
+      <button onclick="openLibItem(${i},'${filter}')" class="w-full bg-emerald-50 text-dzgreen-700 font-black text-[11px] py-2 rounded-lg hover:bg-emerald-100 transition">معاينة وتحميل</button>
+    </div>`).join('');
+}
+
+function openLibItem(i, filter){
+  const items = libItems().filter(x => filter === 'all' || x.type === filter);
+  const it = items[i];
+  if(!it) return;
+  const content =
+`${it.t}
+المادة: ${curSubName()} — ${LEVELS[T.level].name}
+النوع: ${it.type}
+
+عرض تقديمي للمحتوى:
+
+1) الأهداف التعلمية:
+   • يوظف المتعلم موارده لحلّ وضعية دالة.
+   • يدمج مكتسباته السابقة في المقطع الجديد.
+
+2) سير الحصة (55 دقيقة):
+   • 05 د: وضعية الانطلاق وطرح المشكل.
+   • 15 د: بناء الموارد (عمل ثنائي).
+   • 15 د: تصحيح جماعي و تدوين.
+   • 12 د: تطبيق وإدماج جزئي.
+   • 08 د: تقويم ختامي وتغذية راجعة.
+
+3) التقويم:
+   • شبكة معايير ومؤشرات (إنجاز / توظيف / إدماج).
+
+4) المنزل:
+   • تمارين تطبيقية مرقّمة من الكتاب المدرسي.`;
+  openResource(it.t, curSubName() + ' • ' + LEVELS[T.level].name, it.icon, content);
+}
+
+function downloadLibraryIndex(){
+  const items = libItems();
+  let txt = `فهرس مكتبة الموارد — ${curSubName()} — ${LEVELS[T.level].name}\n\n`;
+  items.forEach((it,i)=> txt += `${i+1}. [${it.type}] ${it.t}\n`);
+  downloadFile('فهرس_المكتبة_' + T.subject + '.doc', wrapDoc(txt), 'application/msword');
+}
+
+/* =========================================================
+   حقيبة المفتش
+========================================================= */
+function inspPct(){
+  let done = 0, total = 0;
+  INSP.forEach((cat, ci)=> cat.items.forEach((_, ii)=>{
+    total++;
+    if(inspState[ci + '-' + ii]) done++;
+  }));
+  return total ? Math.round(done / total * 100) : 0;
+}
+
+function renderInsp(){
+  syncTeacherHeader();
+  document.getElementById('inspCats').innerHTML = INSP.map((cat, ci)=>`
+    <div class="bg-white rounded-3xl border p-5">
+      <div class="flex items-center gap-2 font-black mb-3">
+        <span class="w-9 h-9 rounded-xl bg-dzgreen-50 text-dzgreen-600 flex items-center justify-center"><i class="fa-solid ${cat.icon}"></i></span>
+        ${cat.cat}
+      </div>
+      <div class="grid sm:grid-cols-2 gap-2">
+        ${cat.items.map((it, ii)=>{
+          const checked = inspState[ci + '-' + ii] ? 'checked' : '';
+          return `<label class="check-item flex items-start gap-2 cursor-pointer">
+            <input type="checkbox" class="hidden" data-ci="${ci}" data-ii="${ii}" ${checked} onchange="onInspToggle(this)">
+            <div class="flex-1 flex items-start gap-2 border rounded-xl p-3 transition">
+              <span class="boxed w-5 h-5 rounded-md border-2 border-slate-300 flex items-center justify-center text-[10px] shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>
+              <span class="lbl text-[13px] font-bold">${esc(it)}</span>
+            </div>
+          </label>`;
+        }).join('')}
+      </div>
+    </div>`).join('');
+
+  document.getElementById('quizBox').innerHTML = QUIZ.map(q=>`
+    <div class="border rounded-2xl p-3 bg-slate-50">
+      <div class="text-dzgreen-700 mb-1"><i class="fa-solid fa-question-circle ml-1"></i> ${esc(q[0])}</div>
+      <div class="text-slate-500 text-[12px]">${esc(q[1])}</div>
+    </div>`).join('');
+
+  updateInspUI();
+}
+
+function onInspToggle(el){
+  inspState[el.dataset.ci + '-' + el.dataset.ii] = el.checked;
+  updateInspUI();
+  renderSideProgress();
+}
+
+function updateInspUI(){
+  const pct = inspPct();
+  const big = document.getElementById('inspPctBig'); if(big) big.textContent = pct + '%';
+  const bar = document.getElementById('inspBarBig'); if(bar) bar.style.width = pct + '%';
+  const sp = document.getElementById('sidePct'); if(sp) sp.textContent = pct + '%';
+  const sb = document.getElementById('sideBar'); if(sb) sb.style.width = pct + '%';
+}
+
+function saveInsp(){
+  localStorage.setItem('manara_insp', JSON.stringify(inspState));
+  toast('تم حفظ تقدّمك في حقيبة المفتش', 'ok');
+}
+
+function buildInspReport(){
+  let txt = `تقرير جاهزية ملف المفتش\n${curSubName()} — ${LEVELS[T.level].name}\nالتاريخ: ${new Date().toLocaleDateString('fr-DZ')}\n\n`;
+  INSP.forEach((cat, ci)=>{
+    txt += `■ ${cat.cat}\n`;
+    cat.items.forEach((it, ii)=>{
+      txt += `   [${inspState[ci+'-'+ii] ? '✓' : ' '}] ${it}\n`;
+    });
+    txt += '\n';
+  });
+  txt += `نسبة الجاهزية الإجمالية: ${inspPct()}%\n`;
+  return txt;
+}
+
+function printInspectorReport(){
+  let html = `<h1>تقرير جاهزية ملف المفتش</h1>`;
+  html += `<p><b>المادة:</b> ${esc(curSubName())} — <b>المستوى:</b> ${esc(LEVELS[T.level].name)}</p>`;
+  INSP.forEach((cat, ci)=>{
+    html += `<h3>${esc(cat.cat)}</h3><ul>`;
+    cat.items.forEach((it, ii)=>{
+      html += `<li>${inspState[ci+'-'+ii] ? '✓' : '○'} ${esc(it)}</li>`;
+    });
+    html += `</ul>`;
+  });
+  html += `<p><b>نسبة الجاهزية:</b> ${inspPct()}%</p>`;
+  printHTML(html);
+}
+
+function downloadInspectorReport(){
+  downloadFile('تقرير_جاهزية_المفتش.doc', wrapDoc(buildInspReport()), 'application/msword');
+}
+
+/* =========================================================
+   الفروض والاختبارات
+========================================================= */
+function renderExams(){
+  syncTeacherHeader();
+  document.getElementById('examTable').innerHTML = EXAMS.map((e,i)=>`
+    <tr class="table-row border-b ${i%2 ? 'bg-slate-50/60' : ''}">
+      <td class="p-3">${esc(e.p)}</td>
+      <td class="p-3 text-center" dir="ltr">${esc(e.d)}</td>
+      <td class="p-3 text-center"><span class="chip ${e.t === 'اختبار' ? 'bg-red-100 text-red-700' : 'bg-emerald-100 text-emerald-700'}">${e.t}</span></td>
+      <td class="p-3 text-center"><span class="chip ${e.st === 'مبرمج' ? 'bg-blue-100 text-blue-700' : 'bg-amber-100 text-amber-700'}">${e.st}</span></td>
+      <td class="p-3 text-center">
+        <button onclick="downloadExamPaper()" class="text-dzgreen-600 font-black text-[12px]"><i class="fa-solid fa-download"></i> تحميل</button>
+      </td>
+    </tr>`).join('');
+}
+
+function addExam(){
+  const p = document.getElementById('exSub').value;
+  const d = document.getElementById('exDate').value;
+  if(!d) return toast('يرجى اختيار تاريخ الفرض', 'warn');
+  EXAMS.push({p, d, t:'فرض', st:'مبرمج'});
+  renderExams();
+  toast('تمت إضافة الفرض إلى الرزنامة', 'ok');
+}
+
+function downloadExamPaper(){
+  const units = CURR[T.subject]?.units?.[T.level] || [];
+  const u = units[0];
+  const txt =
+`الجمهورية الجزائرية الديمقراطية الشعبية
+وزارة التربية الوطنية
+متوسطة ابن خلدون
+
+الفرض المحروس — ${curSubName()} — ${LEVELS[T.level].name}
+المدة: ساعة واحدة
+
+التمرين الأول: (06 نقاط)
+${u ? 'وضعية تتعلق بمقطع: ' + u.t + '.' : ''}
+${u ? 'الموارد: ' + u.res.join(' / ') + '.' : ''}
+
+التمرين الثاني: (06 نقاط)
+وضعية إدماجية وظّف فيها مكتسباتك السابقة.
+
+التمرين الثالث: (08 نقاط)
+انطلاقًا من السياق، أجب بدقة مبررًا خطواتك.
+
+─────────────────────────
+التصحيح النموذجي وسلم التنقيط:
+
+التمرين الأول:
+ - الإنجاز الصحيح ......... 03 ن
+ - تنظيم الحل .............. 03 ن
+
+التمرين الثاني:
+ - توظيف الموارد ........... 03 ن
+ - صحة النتيجة ............. 03 ن
+
+التمرين الثالث:
+ - المنهجية ................ 03 ن
+ - الدقة والوضوح ........... 05 ن
+
+ملاحظة: تُراعى المعايير: الإنجاز، الاستعمال، الانسجام.`;
+  openResource('موضوع فرض + التصحيح', curSubName() + ' • ' + LEVELS[T.level].name, 'fa-file-pen', txt);
+}
+
+/* =========================================================
+   Admin Dashboard
+========================================================= */
+function switchATab(tab){
+  document.querySelectorAll('#view-admin .atab').forEach(el=>el.classList.add('hidden'));
+  const el = document.getElementById('atab-' + tab);
+  if(el) el.classList.remove('hidden');
+  document.querySelectorAll('#adminNav .side-link').forEach(b=>b.classList.toggle('active', b.dataset.tab === tab));
+  document.getElementById('aMobile')?.classList.add('hidden');
+  if(tab === 'a-teachers') renderTeachers('');
+  if(tab === 'a-classes') renderClasses();
+  if(tab === 'a-ann') renderAnn();
+  if(tab === 'a-overview') renderActivities();
+  window.scrollTo({top:0, behavior:'auto'});
+}
+
+let chartsReady = false;
+function initAdminCharts(){
+  if(chartsReady || typeof Chart === 'undefined') return;
+  chartsReady = true;
+  renderActivities();
+
+  const subCtx = document.getElementById('chSubjects');
+  if(subCtx){
+    new Chart(subCtx, {
+      type:'doughnut',
+      data:{
+        labels:['رياضيات','عربية','فرنسية','إنجليزية','علوم','فيزياء','أخرى'],
+        datasets:[{ data:[8,7,6,5,5,4,7],
+          backgroundColor:['#0B6B4A','#C9A227','#1d4ed8','#6d28d9','#15803d','#b45309','#94a3b8'],
+          borderWidth:0 }]
+      },
+      options:{ responsive:true, maintainAspectRatio:false, cutout:'62%',
+        plugins:{ legend:{ position:'bottom', labels:{ font:{family:'Cairo', weight:'700'}, boxWidth:12 } } } }
+    });
+  }
+
+  const atCtx = document.getElementById('chAttend');
+  if(atCtx){
+    new Chart(atCtx, {
+      type:'bar',
+      data:{
+        labels:['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس'],
+        datasets:[{ label:'نسبة الحضور %', data:[94,97,95,98,96],
+          backgroundColor:'#0B6B4A', borderRadius:10, barThickness:26 }]
+      },
+      options:{ responsive:true, maintainAspectRatio:false,
+        plugins:{ legend:{ display:false } },
+        scales:{ y:{ beginAtZero:true, max:100, ticks:{ font:{family:'Cairo', weight:'700'} } },
+          x:{ ticks:{ font:{family:'Cairo', weight:'700'} }, grid:{ display:false } } } }
+    });
+  }
+
+  const prev = document.getElementById('prevChart');
+  if(prev){
+    new Chart(prev, {
+      type:'line',
+      data:{
+        labels:['سبتمبر','أكتوبر','نوفمبر','ديسمبر','جانفي','فيفري'],
+        datasets:[{ label:'نسبة إنجاز المنهاج', data:[12,30,46,58,72,84],
+          borderColor:'#0B6B4A', backgroundColor:'rgba(11,107,74,.12)', fill:true, tension:.4, borderWidth:3, pointRadius:3 }]
+      },
+      options:{ responsive:true, maintainAspectRatio:false,
+        plugins:{ legend:{ display:false } },
+        scales:{ y:{ beginAtZero:true, max:100, ticks:{ font:{family:'Cairo', weight:'700'} } },
+          x:{ ticks:{ font:{family:'Cairo', weight:'700'} }, grid:{ display:false } } } }
+    });
+  }
+}
+
+function renderActivities(){
+  const acts = [
+    ['سارة بن علي','سجّلت حسابًا جديدًا عبر البريد','منذ 12 د'],
+    ['يوسف حمادي','حمّل المخطط السنوي للرياضيات','منذ ساعة'],
+    ['كريم مزياني','أنشأ حسابًا عبر فيسبوك','منذ 3 ساعات'],
+    ['حورية زيتوني','أكملت ملف المفتش (92%)','منذ يوم'],
+    ['رضا عيساوي','طلب المصادقة على حسابه','منذ يومين']
+  ];
+  const el = document.getElementById('actList');
+  if(el) el.innerHTML = acts.map(a=>`
+    <div class="flex items-center gap-3 p-3 rounded-2xl bg-slate-50">
+      <span class="w-9 h-9 rounded-full bg-gradient-to-br from-dzgreen-500 to-emerald-700 text-white flex items-center justify-center text-[12px] font-black shrink-0">${a[0].charAt(0)}</span>
+      <div class="flex-1"><b>${a[0]}</b> — ${a[1]}</div>
+      <span class="text-[11px] text-slate-400">${a[2]}</span>
+    </div>`).join('');
+}
+
+let TEACHERS = [...TEACHERS_SEED];
+function renderTeachers(q=''){
+  q = q.trim();
+  const rows = TEACHERS.filter(t => !q || t.n.includes(q) || t.s.includes(q));
+  const el = document.getElementById('teachersTable');
+  if(!el) return;
+  el.innerHTML = rows.map((t,i)=>{
+    const stCls = t.st === 'مصادق' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700';
+    return `<tr class="table-row border-b">
+      <td class="p-3 flex items-center gap-2">
+        <span class="w-8 h-8 rounded-full bg-gradient-to-br from-dzgreen-500 to-emerald-700 text-white flex items-center justify-center text-[11px] font-black">${t.n.charAt(0)}</span>
+        ${esc(t.n)}
+      </td>
+      <td class="p-3">${esc(t.s)}</td>
+      <td class="p-3">${esc(t.l)}</td>
+      <td class="p-3"><span class="chip ${t.m === 'فيسبوك' ? 'bg-blue-100 text-blue-700' : 'bg-slate-100 text-slate-600'}"><i class="fa-solid ${t.m === 'فيسبوك' ? 'fa-brands fa-facebook-f' : 'fa-envelope'}"></i> ${t.m}</span></td>
+      <td class="p-3"><span class="chip ${stCls}">${t.st}</span></td>
+      <td class="p-3">
+        ${t.st === 'بانتظار'
+          ? `<button onclick="approveTeacher(${i})" class="bg-dzgreen-600 text-white font-black text-[11px] px-3 py-1.5 rounded-lg">مصادقة</button>`
+          : `<button onclick="toast('تم إرسال تنبيه للأستاذ ${esc(t.n)}','info')" class="border font-black text-[11px] px-3 py-1.5 rounded-lg">تنبيه</button>`}
+      </td>
+    </tr>`;
+  }).join('') || `<tr><td colspan="6" class="p-6 text-center text-slate-400">لا نتائج مطابقة</td></tr>`;
+
+  const pending = TEACHERS.filter(t=>t.st === 'بانتظار').length;
+  const badge = document.getElementById('pendingBadge');
+  if(badge){ badge.textContent = pending; badge.style.display = pending ? 'inline-flex' : 'none'; }
+}
+
+function approveTeacher(i){
+  const t = TEACHERS.filter(t=>t.st === 'بانتظار')[i];
+  if(t){ t.st = 'مصادق'; }
+  renderTeachers(document.getElementById('admSearch')?.value || '');
+  toast('تمت المصادقة على الحساب', 'ok');
+}
+
+function renderClasses(){
+  document.getElementById('classesGrid').innerHTML = CLASSES.map(c=>`
+    <div class="card-hover bg-white rounded-2xl border p-5">
+      <div class="flex items-center justify-between mb-2">
+        <div class="w-11 h-11 rounded-2xl bg-blue-50 text-blue-700 flex items-center justify-center font-black">${c.n}</div>
+        <span class="chip bg-slate-100 text-slate-500">${c.t} تلميذ</span>
+      </div>
+      <div class="font-black">قسم ${c.n}</div>
+      <div class="text-[12px] text-slate-500 font-bold">أستاذ المادة: ${c.m}</div>
+      <div class="mt-3 h-2 bg-slate-100 rounded-full overflow-hidden">
+        <div class="h-full bar-fill rounded-full bg-gradient-to-l from-dzgreen-500 to-gold-500" style="width:${60 + Math.round(Math.random()*35)}%"></div>
+      </div>
+    </div>`).join('');
+}
+
+function renderAnn(){
+  const el = document.getElementById('annList');
+  if(!el) return;
+  el.innerHTML = ANN.map(a=>`
+    <div class="bg-white rounded-3xl border p-5">
+      <div class="flex items-start gap-3">
+        <span class="w-10 h-10 rounded-2xl bg-gold-500 text-[#04261c] flex items-center justify-center shrink-0"><i class="fa-solid fa-bullhorn"></i></span>
+        <div class="flex-1">
+          <div class="font-black">${esc(a.t)}</div>
+          <div class="text-[13px] font-bold text-slate-500 mt-1 leading-relaxed">${esc(a.b)}</div>
+          <div class="flex gap-2 mt-2 text-[11px] font-black">
+            <span class="chip bg-emerald-100 text-emerald-700">${esc(a.to)}</span>
+            <span class="chip bg-slate-100 text-slate-500">${esc(a.d)}</span>
+          </div>
+        </div>
+      </div>
+    </div>`).join('') || '<div class="text-center text-slate-400 font-bold py-6">لا توجد إعلانات</div>';
+}
+
+function publishAnn(){
+  const t = document.getElementById('annTitle').value.trim();
+  const b = document.getElementById('annBody').value.trim();
+  const to = document.getElementById('annTo').value;
+  if(!t) return toast('يرجى إدخال عنوان الإعلان', 'warn');
+  ANN.unshift({t, b:b || '—', to, d:'الآن'});
+  document.getElementById('annTitle').value = '';
+  document.getElementById('annBody').value = '';
+  document.getElementById('annForm').classList.add('hidden');
+  renderAnn();
+  toast('تم نشر الإعلان لجميع المعنيين', 'ok');
+}
+
+function openAddTeacher(){ document.getElementById('addTModal').classList.remove('hidden'); }
+
+function addTeacherManual(){
+  const n = document.getElementById('ntName').value.trim();
+  const s = document.getElementById('ntSub').value;
+  const l = document.getElementById('ntLvl').value;
+  const email = document.getElementById('ntEmail').value.trim();
+  if(!n) return toast('يرجى إدخال اسم الأستاذ', 'warn');
+  const sname = SUBJECTS.find(x=>x.id === s)?.name || s;
+  TEACHERS.push({n, s:sname, l, m:'البريد', st:'بانتظار'});
+  document.getElementById('addTModal').classList.add('hidden');
+  document.getElementById('ntName').value = '';
+  document.getElementById('ntEmail').value = '';
+  renderTeachers('');
+  toast('تمت إضافة الأستاذ وإرسال الدعوة' + (email ? ' إلى ' + email : ''), 'ok');
+}
+
+function downloadTeachersCSV(){
+  let csv = 'الاسم,المادة,الطور,طريقة التسجيل,الحالة\n';
+  TEACHERS.forEach(t=> csv += `"${t.n}","${t.s}","${t.l}","${t.m}","${t.st}"\n`);
+  downloadFile('قائمة_الأساتذة.csv', csv, 'text/csv');
+}
+
+function downloadMonthlyReport(){
+  const txt =
+`الجمهورية الجزائرية الديمقراطية الشعبية
+وزارة التربية الوطنية
+مديرية التربية — متوسطة ابن خلدون
+
+التقرير البيداغوجي الشهري — أكتوبر 2025
+
+1) الموارد البشرية:
+   • عدد الأساتذة: 42 (38 مرسّم + 4 مستخلف)
+   • نسبة الحضور: 96%
+   • الأساتذة الجدد المعنيون بالمصادقة: ${TEACHERS.filter(t=>t.st==='بانتظار').length}
+
+2) سير المنهاج:
+   • نسبة إنجاز المخططات السنوية: 68%
+   • المقاطع المنجزة: حسب التدرج الرسمي.
+
+3) التقويم والنتائج:
+   • الفروض المنجزة: 6 فروض موحدة.
+   • المعالجة البيداغوجية: أُنجزت لأقسام 4م3 و 1م2.
+
+4) زيارات المفتشين:
+   • 3 زيارات تفتيشية — تقارير إيجابية.
+
+5) التوصيات:
+   • تكثيف العمل الجماعي للمواد.
+   • متابعة الأقسام ذات النتائج المنخفضة.
+
+حرر بتاريخ: ${new Date().toLocaleDateString('fr-DZ')}
+مدير المؤسسة`;
+  downloadFile('التقرير_الشهري_أكتوبر.doc', wrapDoc(txt), 'application/msword');
+}
+
+function downloadResultsAnalysis(){
+  const txt =
+`تحليل نتائج الفصل — متوسطة ابن خلدون
+
+المادة | المعدل العام | نسبة النجاح | الملاحظة
+────────────────────────────────────────
+الرياضيات        | 11.4 | 74% | تحتاج دعمًا
+اللغة العربية    | 12.1 | 81% | جيدة
+اللغة الفرنسية   | 10.8 | 66% | تحتاج معالجة
+الإنجليزية      | 11.9 | 78% | مقبولة
+العلوم الطبيعية  | 12.6 | 84% | جيدة جدًا
+الفيزياء         | 11.2 | 71% | تحتاج دعمًا
+
+التوصيات:
+• تخصيص حصص معالجة في الرياضيات والفيزياء.
+• استعمال التقويم التكويني في الفرنسية.
+• تعميم شبكات التقويم الذاتي.`;
+  downloadFile('تحليل_النتائج.doc', wrapDoc(txt), 'application/msword');
+}
+
+/* =========================================================
+   Scroll progress & Navbar shadow
+========================================================= */
+window.addEventListener('scroll', ()=>{
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  const sp = document.getElementById('scrollProgress');
+  if(sp) sp.style.width = pct + '%';
+}, {passive:true});
+
+/* =========================================================
+   Init
+========================================================= */
+document.addEventListener('DOMContentLoaded', ()=>{
+  document.querySelectorAll('#teacherNav .side-link').forEach(b=>{
+    b.addEventListener('click', ()=> switchTTab(b.dataset.tab));
+  });
+  document.querySelectorAll('#adminNav .side-link').forEach(b=>{
+    b.addEventListener('click', ()=> switchATab(b.dataset.tab));
+  });
+
+  // Mobile nav for dashboards
+  const tMobile = document.getElementById('tMobile');
+  if(tMobile){
+    tMobile.innerHTML = ['overview:لوحتي','manhaj:المنهاج','maqati3:المقاطع','kafa:الكفاءات','library:المكتبة','moufatch:المفتش','exams:الفروض']
+      .map(x=>{ const [k,v]=x.split(':'); return `<button onclick="switchTTab('${k}')" class="bg-white/10 rounded-xl py-2.5 text-[12px] font-black">${v}</button>`; }).join('');
+  }
+  const aMobile = document.getElementById('aMobile');
+  if(aMobile){
+    aMobile.innerHTML = ['a-overview:نظرة عامة','a-teachers:الأساتذة','a-classes:الأقسام','a-ann:الإعلانات','a-rep:التقارير']
+      .map(x=>{ const [k,v]=x.split(':'); return `<button onclick="switchATab('${k}')" class="bg-white/10 rounded-xl py-2.5 text-[12px] font-black">${v}</button>`; }).join('');
+  }
+
+  // Close modals on backdrop click
+  ['authModal','fbModal','resModal','addTModal'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.addEventListener('click', e=>{ if(e.target === el) el.classList.add('hidden'); });
+  });
+
+  // Esc closes modals
+  document.addEventListener('keydown', e=>{
+    if(e.key === 'Escape'){
+      ['authModal','fbModal','resModal','addTModal'].forEach(id=>document.getElementById(id)?.classList.add('hidden'));
+    }
+  });
+
+  // Render default dashboard states so they look alive when first opened
+  renderOverview();
+  renderManhaj();
+  renderMaqati3();
+  renderKafa();
+  renderLibrary();
+  renderInsp();
+  renderExams();
+  renderTeachers('');
+  renderClasses();
+  renderAnn();
+
+  initHome();
+});
+</script>
+</body>
+</html>
